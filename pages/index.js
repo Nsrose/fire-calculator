@@ -54,11 +54,13 @@ export default class Home extends React.Component {
           defaults={this.defaults}
           />
 
+          <div className={styles.graph}>
           <FixedPercentageGraph 
             ref={this.chartReference}
             form={this.formReference}
             defaults={this.defaults}
           />
+          </div>
 
 
         </main>

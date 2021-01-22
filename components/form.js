@@ -13,8 +13,6 @@ export default class InputsForm extends React.Component {
     super(props);
     this.state = this.props.defaults;
     this.calculator = new Calculator();
-    // FIX THIS, the damn graph isn't mounted yet at this point so that's why this doesn't work here
-    // this.props.graph.current.handleUpdate(this.calculationResult);``
 
   }
 
@@ -23,12 +21,6 @@ export default class InputsForm extends React.Component {
     this.calculationResult = this.calculator.calculate(this.state);
     this.props.graph.current.handleUpdate(this.calculationResult);
   }
-
-  // initialLoadCallback = () => {
-  //   this.calculationResult = this.calculator.calculate(this.state);
-  //   this.props.graph.current.handleUpdate(this.calculationResult);
-  // }
-
 
 
   render() {
