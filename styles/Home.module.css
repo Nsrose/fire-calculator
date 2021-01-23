@@ -1,15 +1,13 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  /*padding: 0 0.5rem;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.graph {
-  width: 75%;
-}
+
 
 .main {
   padding: 5rem 0;
@@ -123,4 +121,20 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+
+
+
+.graph {
+width:2000px;
+  /*width: 1000px;*/
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    float:left;
+}
+
+.float-container {
+  width:100%;
 }

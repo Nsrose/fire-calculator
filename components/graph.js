@@ -43,9 +43,13 @@ class FixedPercentageGraph extends React.Component {
         scales: {
           xAxes: [{
             display: true,
+            ticks: {
+              fontSize: 16,
+            },
             scaleLabel: {
               display: true,
-              labelString: 'Age'
+              labelString: 'Age',
+              fontSize: 16
             }
           }],
           yAxes: [{
@@ -53,7 +57,14 @@ class FixedPercentageGraph extends React.Component {
                     // Include a dollar sign in the ticks
                     callback: function(value, index, values) {
                         return '$' + value.toFixed(2);
-                    }
+                    },
+                    fontSize: 16,
+                },
+                scaleLabel: {
+                  labelString: "$ (USD)",
+                  display: true,
+                  fontSize: 16,
+                  minRotation: 90
                 }
             }]
         },
@@ -123,10 +134,10 @@ class FixedPercentageGraph extends React.Component {
 
     this.myChart.data.labels = labels;
 
-    this.addLine(endOfYearSavingsLine, "Total", "rgba(155, 51, 240, 0.7)", 0);
-    this.addLine(returnsLine, "Returns", "rgba(72, 64, 187, 0.7)", 1);
-    this.addLine(savedLine, "Saved", "rgba(204, 0, 255, 0.7)", 2);
-    this.addLine(initialLine, "Initial", "rgba(65, 63, 87, 0.5)", 3);
+    this.addLine(endOfYearSavingsLine, "Total Net Worth", "rgba(155, 51, 240, 0.7)", 0);
+    this.addLine(returnsLine, "Total Returns", "rgba(72, 64, 187, 0.7)", 1);
+    this.addLine(savedLine, "Total Saved", "rgba(204, 0, 255, 0.7)", 2);
+    this.addLine(initialLine, "Initial Net Worth", "rgba(65, 63, 87, 0.5)", 3);
 
     this.myChart.data.datasets[0].fill = +2;
     this.myChart.data.datasets[1].fill = 3;

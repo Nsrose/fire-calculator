@@ -1,0 +1,64 @@
+.formContainer {
+    background: #292a2b;;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    margin-bottom:10px;
+    outline: none;
+    float:left;
+    margin-right: 10px;
+}
+
+.formLabel {
+  width: 300px;
+  margin-right: 10px;
+  margin-left:5px;
+  padding-bottom: 5px
+
+}
+
+.formInput {
+  background:black;
+  color: #afafaf;
+  font-size:16px;
+  text-shadow: 0 0 0 #afafaf;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width:208px;
+}
+
+
+.formContainer select,
+.formContainer input,
+.formContainer textarea,
+.formContainer button {
+  /*width: 100%;*/
+  line-height: 1.5;
+  /*padding: 15px 10px;*/
+  border: 1px solid #1A1A1A;
+  color: #afafaf;
+  background: #242424;
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+    transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+.formContainer select:focus,
+.formContainer input:focus,
+.formContainer textarea:focus,
+.formContainer button:enabled:hover,
+.formContainer button:focus,
+.formContainer input[type="checkbox"]:focus + label {
+  background: #1A1A1A;
+  outline: none;
+}
+
+.formContainer select:focus,
+.formContainer input:focus,
+.formContainertextarea:focus {
+  transform: scale(1.02);
+}
+
+.clearfix {
+  overflow: auto;
+}
+

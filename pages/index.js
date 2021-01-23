@@ -34,7 +34,7 @@ export default class Home extends React.Component {
     return (
       <div className={styles.container}>
         <Head>
-          <title>FatFire Calculator</title>
+          <title>FatFIRE Calculator</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -42,25 +42,28 @@ export default class Home extends React.Component {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            FatFire Calculator
+            FatFIRE Calculator
           </h1>
 
           <p className={styles.description}>
             How long until I can chill on the beach for the rest of my life?
           </p>
-      
-          <InputsForm 
-          graph={this.chartReference}
-          defaults={this.defaults}
-          />
+
+
+         <div class="float-container">
+            <InputsForm 
+            graph={this.chartReference}
+            defaults={this.defaults}
+            />
+        
 
           <div className={styles.graph}>
-          <FixedPercentageGraph 
-            ref={this.chartReference}
-            form={this.formReference}
-            defaults={this.defaults}
-          />
+            <FixedPercentageGraph 
+              ref={this.chartReference}
+              defaults={this.defaults}
+            />
           </div>
+        </div>
 
 
         </main>
@@ -71,9 +74,10 @@ export default class Home extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by{' '}
+            All financial data is processed client-side with {' '}
             <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
           </a>
+          
         </footer>
       </div>
     )
