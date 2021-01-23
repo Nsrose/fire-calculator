@@ -37,6 +37,15 @@ export default class Home extends React.Component {
         <Head>
           <title>FIRE Calculator</title>
           <link rel="icon" href="/favicon.ico" />
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-39S0HP6RN0"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-39S0HP6RN0');
+          </script>
         </Head>
 
        
