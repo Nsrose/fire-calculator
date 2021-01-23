@@ -13,14 +13,15 @@
   width: 300px;
   margin-right: 10px;
   margin-left:5px;
-  padding-bottom: 5px
+  padding-bottom: 5px;
+  font-size: 1rem;
 
 }
 
 .formInput {
   background:black;
   color: #afafaf;
-  font-size:16px;
+  font-size:1rem;
   text-shadow: 0 0 0 #afafaf;
   margin-bottom: 10px;
   margin-top: 10px;

@@ -34,7 +34,7 @@ export default class Home extends React.Component {
     return (
       <div className={styles.container}>
         <Head>
-          <title>FatFIRE Calculator</title>
+          <title>FIRE Calculator</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -42,11 +42,11 @@ export default class Home extends React.Component {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            FatFIRE Calculator
+            FIRE Calculator
           </h1>
 
           <p className={styles.description}>
-            How long until I can chill on the beach for the rest of my life?
+            How many years until financial independence?
           </p>
 
 

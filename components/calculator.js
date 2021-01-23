@@ -78,7 +78,8 @@ export default class Calculator extends React.Component{
 
         return {
             "fireYear" : fireYear,
-            "data" : data.slice(0, indexofFireYear+5)
+            "data" : data.slice(0, indexofFireYear+5),
+            "fireTarget" : fireTarget,
         };
 
 

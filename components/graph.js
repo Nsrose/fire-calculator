@@ -44,12 +44,12 @@ class FixedPercentageGraph extends React.Component {
           xAxes: [{
             display: true,
             ticks: {
-              fontSize: 16,
+              fontSize: 12,
             },
             scaleLabel: {
               display: true,
               labelString: 'Age',
-              fontSize: 16
+              fontSize: 12
             }
           }],
           yAxes: [{
@@ -58,21 +58,19 @@ class FixedPercentageGraph extends React.Component {
                     callback: function(value, index, values) {
                         return '$' + value.toFixed(2);
                     },
-                    fontSize: 16,
+                    fontSize: 12,
                 },
                 scaleLabel: {
                   labelString: "$ (USD)",
                   display: true,
-                  fontSize: 16,
+                  fontSize: 12,
                   minRotation: 90
                 }
             }]
-        },
+        },  
         tooltips: {
           mode: "x-axis",
           displayColors: true,
-          titleFontSize: 16,
-          bodyFontSize: 16,
           legend: {
             display: false
           },
@@ -116,6 +114,7 @@ class FixedPercentageGraph extends React.Component {
   handleUpdate = (calculationResult) => {
     var fireYear = calculationResult.fireYear;
     var newData = calculationResult.data;
+    var fireTarget = calculationResult.fireTarget;
 
     var endOfYearSavingsLine = [];
     var initialLine = [];
@@ -153,24 +152,49 @@ class FixedPercentageGraph extends React.Component {
           scaleID: 'x-axis-0',
           value: fireYear,
           borderColor: "#2984c5",
-          borderWidth: 5,
+          borderWidth: 3,
           label: {
-            // Background color of label, default below
             backgroundColor: 'rgba(0,0,0,0.8)',
-
-            // optional drawTime to control labels' layering; defaults to this element's drawTime
             drawTime: 'afterDatasetsDraw',
-
-            // Padding of label to add left/right, default below
-            xPadding: 6,
-
-            // Padding of label to add top/bottom, default below
-            yPadding: 6,
-
-            // Radius of label rectangle, default below
+            xPadding: 10,
+            yPadding: 10,
             cornerRadius: 6,
+            position: "center",
 
-            // Anchor position of label on line, can be one of: 'start', 'center', 'end'. Default 'center'.
+            // Adjustment along x-axis (left-right) of label relative to above number (can be negative)
+            // Negative values move the label left, postitive right.
+            xAdjust: -100,
+
+            // Adjustment along y-axis (top-bottom) of label, in pixels. (can be negative)
+            // Negative values move the label up, positive down.
+            yAdjust: -150,
+            enabled: true,
+
+            // Text to display in label - default is null. Provide an array to display values on a new line
+            content: "Age: " + String(fireYear) + " (" + String(fireYear - labels[0]) + " more years)",
+            //"FIRE 
+            fontSize: 16,
+
+            // Rotation of label, in degrees, or 'auto' to use the degrees of the line, default is 0
+            rotation: 0,
+        },
+        }
+      ]}
+
+      this.myChart.options.annotation.annotations.push(
+        {
+          type: "line",
+          mode: 'horizontal',
+          scaleID: 'y-axis-0',
+          value: fireTarget,
+          borderColor: "rgba(255,0,0,0.9)",
+          borderWidth: 3,
+          label: {
+            backgroundColor: 'rgba(255,0,0,0.9)',
+            drawTime: 'afterDatasetsDraw',
+            xPadding: 10,
+            yPadding: 10,
+            cornerRadius: 6,
             position: "center",
 
             // Adjustment along x-axis (left-right) of label relative to above number (can be negative)
@@ -180,19 +204,19 @@ class FixedPercentageGraph extends React.Component {
             // Adjustment along y-axis (top-bottom) of label, in pixels. (can be negative)
             // Negative values move the label up, positive down.
             yAdjust: 0,
-
-            // Whether the label is enabled and should be displayed
             enabled: true,
 
             // Text to display in label - default is null. Provide an array to display values on a new line
-            content: "FIRE Age: " + String(fireYear) + " (" + String(fireYear - labels[0]) + " more years)",
-            fontSize: 24,
+            content: "FIRE Target: " + formatter.format(fireTarget),
+            // "FIRE Target: " + formatter.format(fireTarget),
+           
+            fontSize: 16,
 
             // Rotation of label, in degrees, or 'auto' to use the degrees of the line, default is 0
-            rotation: 90,
+            rotation: 0,
         },
-        }
-      ]}
+        })
+
 
     this.myChart.update();
   }
