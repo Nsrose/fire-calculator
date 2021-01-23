@@ -6,6 +6,7 @@ import FixedPercentageGraph from '../components/graph';
 import { Doughnut } from 'react-chartjs-2';
 
 
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -14,17 +15,17 @@ export default class Home extends React.Component {
     this.defaults = {
       "age" : 26,
       "investments" : 417300,
-      "stocks" : 0.9,
-      "bonds" : 0.07,
-      "cash" : 0.03,
+      "stocks" : "90%",
+      "bonds" : "7%",
+      "cash" : "3%",
       "income" : 141000.00,
       "spending" : 72000.00,
-      "incomeGrowth" : 0.02,
+      "incomeGrowth" : "2%",
       "retirementSpending" : 100000.00,
-      "withdrawalRate" : 0.04,
-      "retirementTaxRate" : 0.07,
-      "stockReturns" : 0.081,
-      "bondReturns" : 0.024
+      "withdrawalRate" : "4%",
+      "retirementTaxRate" : "7%",
+      "stockReturns" : "8.1%",
+      "bondReturns" : "2.4%"
     };
   }
 

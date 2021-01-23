@@ -11,17 +11,17 @@ export default class Calculator extends React.Component{
         // Extracted values from input form
         var age = parseInt(state.age);
         var investments = parseFloat(state.investments);
-        var stocks = parseFloat(state.stocks);
-        var bonds = parseFloat(state.bonds);
-        var cash = parseFloat(state.cash);
+        var stocks = parseFloat(state.stocks.slice(0, -1)) / 100;
+        var bonds = parseFloat(state.bonds.slice(0, -1)) / 100;
+        var cash = parseFloat(state.cash.slice(0, -1)) / 100;
         var income = parseFloat(state.income);
         var spending = parseFloat(state.spending);
-        var incomeGrowth = parseFloat(state.incomeGrowth);
+        var incomeGrowth = parseFloat(state.incomeGrowth.slice(0, -1)) / 100;
         var retirementSpending = parseFloat(state.retirementSpending);
-        var withdrawalRate = parseFloat(state.withdrawalRate);
-        var retirementTaxRate = parseFloat(state.retirementTaxRate);
-        var stockReturns = parseFloat(state.stockReturns);
-        var bondReturns = parseFloat(state.bondReturns);
+        var withdrawalRate = parseFloat(state.withdrawalRate.slice(0, -1)) / 100;
+        var retirementTaxRate = parseFloat(state.retirementTaxRate.slice(0, -1)) / 100;
+        var stockReturns = parseFloat(state.stockReturns.slice(0, -1)) / 100;
+        var bondReturns = parseFloat(state.bondReturns.slice(0, -1)) / 100;
 
         // Derived values from inputs
         var annualSavings = income - spending;
