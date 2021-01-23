@@ -127,12 +127,14 @@
 
 
 .graph {
-width:2000px;
+width:1300px;
   /*width: 1000px;*/
+
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    float:left;
+    /*float:left;*/
+    flex-grow: 1;
 }
 
 .float-container {
