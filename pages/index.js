@@ -42,7 +42,7 @@ export default class Home extends React.Component {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            FIRE Calculator
+            🔥 FIRE Calculator
           </h1>
 
           <p className={styles.description}>

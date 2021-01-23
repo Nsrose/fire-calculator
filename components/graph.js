@@ -29,7 +29,7 @@ class FixedPercentageGraph extends React.Component {
       {
         responsive: true,
         animation: {
-            duration: 5000, // general animation time
+            duration: 3000, // general animation time
         },
         title: {
           text: "Fixed Percentage Graph",
@@ -133,7 +133,7 @@ class FixedPercentageGraph extends React.Component {
 
     this.myChart.data.labels = labels;
 
-    this.addLine(endOfYearSavingsLine, "Total Net Worth", "rgba(155, 51, 240, 0.7)", 0);
+    this.addLine(endOfYearSavingsLine, "Total Net Worth", "rgba(30, 166, 114, 0.7)", 0);
     this.addLine(returnsLine, "Total Returns", "rgba(72, 64, 187, 0.7)", 1);
     this.addLine(savedLine, "Total Saved", "rgba(204, 0, 255, 0.7)", 2);
     this.addLine(initialLine, "Initial Net Worth", "rgba(65, 63, 87, 0.5)", 3);
@@ -151,8 +151,9 @@ class FixedPercentageGraph extends React.Component {
           mode: 'vertical',
           scaleID: 'x-axis-0',
           value: fireYear,
-          borderColor: "#2984c5",
+          borderColor: "rgba(0,0,0,0.5)",
           borderWidth: 3,
+          borderDash: [5,5],
           label: {
             backgroundColor: 'rgba(0,0,0,0.8)',
             drawTime: 'afterDatasetsDraw',
@@ -187,10 +188,11 @@ class FixedPercentageGraph extends React.Component {
           mode: 'horizontal',
           scaleID: 'y-axis-0',
           value: fireTarget,
-          borderColor: "rgba(255,0,0,0.9)",
+          borderColor: "rgba(0,0,0,0.5)",
           borderWidth: 3,
+          borderDash: [5,5],
           label: {
-            backgroundColor: 'rgba(255,0,0,0.9)',
+            backgroundColor: '#1ea672',
             drawTime: 'afterDatasetsDraw',
             xPadding: 10,
             yPadding: 10,
