@@ -7,7 +7,7 @@ export default class Calculator extends React.Component{
     }
 
 
-    calculate(state) {
+    calculate = (state) => {
         // Extracted values from input form
         var age = parseInt(state.age);
         var investments = parseFloat(state.investments);
@@ -85,4 +85,7 @@ export default class Calculator extends React.Component{
 
 
     }
+
+
+
 }
