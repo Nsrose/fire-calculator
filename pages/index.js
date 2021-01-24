@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import InputsForm from '../components/form'
 import FixedPercentageGraph from '../components/graph';
 import { Doughnut } from 'react-chartjs-2';
 
-
+function State() {
+    /*const age = Number(window.localStorage.getItem('age')) || 26
+}
+    useEffect(() => {
+    window.localStorage.setItem('age', age)
+})*/
+}
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.chartReference = React.createRef();
     this.formReference = React.createRef();
+    this.expensesReference = React.createRef();
     this.defaults = {
       "age" : 26,
       "investments" : 417300,
@@ -29,7 +36,20 @@ export default class Home extends React.Component {
     };
   }
 
+componentDidMount() {
+    var userInput = Home.formReference.defaults;
+    this.handleUpdate(calculationResult);
+    console.log(window.localStorage)
+    window.localStorage.getItem("age")
 
+    handleUpdate = (calculationResult) => {
+        var fireYear = calculationResult.fireYear;
+        var newData = calculationResult.data;
+        var fireTarget = calculationResult.fireTarget;
+
+        this.myChart.update();
+    }
+}
 
   render() {
     return (
@@ -56,8 +76,6 @@ export default class Home extends React.Component {
             graph={this.chartReference}
             defaults={this.defaults}
             />
-        
-
           <div className={styles.graph}>
             <FixedPercentageGraph 
               ref={this.chartReference}

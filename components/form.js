@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Calculator from "../components/calculator";
@@ -18,9 +18,16 @@ export default class InputsForm extends React.Component {
   }
 
   handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    window.localStorage.setItem(event.target.name, event.target.value)
+    window.localStorage.getItem(event.target.name)
+
     this.state[event.target.name] = event.target.value;
     this.calculationResult = this.calculator.calculate(this.state);
     this.props.graph.current.handleUpdate(this.calculationResult);
+
   }
 
 
