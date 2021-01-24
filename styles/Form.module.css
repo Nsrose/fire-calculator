@@ -8,6 +8,8 @@
     float:left;
     margin-right: 10px;
     margin-left:20px;
+    height:800px;
+    overflow: scroll;
 }
 
 .formLabel {
@@ -64,3 +66,26 @@
   overflow: auto;
 }
 
+.formGroup {
+  border: 1px solid #afafaf;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.formGroupMoreContainer {
+
+}
+
+
+.moreAction {
+
+
+}
+
+.moreText {
+
+  
+}

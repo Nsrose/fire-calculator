@@ -4,7 +4,64 @@ export default class Calculator extends React.Component{
     constructor(props) {
         super(props);
         this.calculate = this.calculate.bind(this);
+        //delet thies newphew
+        this.extraIncome =[
+            {
+                value: 175000,
+                startAge: 30,
+                endAge: 48
+            },
+            {
+                 value: 10000,
+                 startAge: 31,
+                 endAge: 32
+             }
+        ]
+        this.extraExpenses = [
+            {
+                value: 30000,
+                startAge: 28,
+                endAge: 40
+            }
+        ]
     }
+
+    flattenExtraItems = (extraIncomes, extraExpenses) => {
+        // flatten user input Extra Incomes and Expenses into a data structure for easy calculation
+        var extraItems = {};
+        for (var i = 0; i < extraIncomes.length; i++) {
+            var incomeItem = extraIncomes[i];
+            for (var year = incomeItem.startAge; year <= incomeItem.endAge; year++) {
+                if (!extraItems[year]) {
+                    extraItems[year] = {
+                        extraIncome: 0,
+                        extraExpense: 0,
+                    }
+                }
+
+                extraItems[year].extraIncome += incomeItem.value;
+            }
+        }
+
+        for (var i = 0; i < extraExpenses.length; i++) {
+            var expenseItem = extraExpenses[i];
+            for (var year = expenseItem.startAge; year <= expenseItem.endAge; year++) {
+                if (!extraItems[year]) {
+                    extraItems[year] = {
+                        extraIncome: 0,
+                        extraExpense: 0,
+                    }
+                }
+
+                extraItems[year].extraExpense += expenseItem.value;
+            }
+        }
+
+        return extraItems;
+    }
+
+
+
 
 
     calculate = (state) => {
@@ -38,7 +95,7 @@ export default class Calculator extends React.Component{
             "returns" : 0
         }];
         var previousYearSavings = investments;
-        var nextYearIncome = (1 + incomeGrowth) * income;
+        var nextYearIncome = income;
         var nextYearSaved = nextYearIncome - spending;
         var endOfYearSavings = 0;
 
@@ -48,7 +105,23 @@ export default class Calculator extends React.Component{
         var year;
         var i;
         var indexofFireYear = 0;
+        var extraItems = this.flattenExtraItems(this.extraIncome, this.extraExpenses);
         for (year = age + 1, i=0; year <= 100; year++, i++) {
+            // Grow income according to yearly income growth rate
+            if (year == 28) {
+                // debugger;
+            }
+            nextYearIncome = (1 + incomeGrowth) * nextYearIncome;
+
+            // Add income & subtract extra expenses if user provided them
+            var nextYearExtraIncomeExpense = 0;
+            if (extraItems[year]) { //this might be off by 1
+                nextYearExtraIncomeExpense += extraItems[year].extraIncome - extraItems[year].extraExpense;
+            }
+
+            // This is how much the user saves this year now 
+            nextYearSaved = nextYearIncome - spending + nextYearExtraIncomeExpense;
+
 
             endOfYearSavings = (previousYearSavings + nextYearSaved) * cash * 1 
             + (previousYearSavings)*bonds*(1+bondReturns) + nextYearSaved*bonds*(1+bondReturns)**0.5 
@@ -64,14 +137,13 @@ export default class Calculator extends React.Component{
 
             
             if (!fireYear && endOfYearSavings >= fireTarget) {
-                // NOTE: This checks for strict greater than / eq to, but the reference calculator is ok with with 5%, consider changing
+                // NOTE: This checks for strict greater than / eq to, but the reference calculator is ok with  5%, consider changing
                 indexofFireYear = i; 
                 fireYear = year;
             }
 
             previousYearSavings = endOfYearSavings;
-            nextYearIncome = (1 + incomeGrowth) * nextYearIncome;
-            nextYearSaved = nextYearIncome - spending;
+            
 
             
         }

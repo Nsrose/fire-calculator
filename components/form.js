@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Calculator from "../components/calculator";
 import styles from '../styles/Form.module.css'
 import ReactTooltip from 'react-tooltip';
+import Image from 'next/image'
 
 
 
@@ -69,6 +70,7 @@ export default class InputsForm extends React.Component {
           <input className={styles.formInput} name="cash" defaultValue={this.state.cash}/>
           </div>
 
+
           <div class="form-element">
           <label className={styles.formLabel}
           data-tip="Your yearly income, including bonuses <br> and equity, with taxes subtracted out">Post-Tax Income</label> 
@@ -82,6 +84,9 @@ export default class InputsForm extends React.Component {
           <div class="clearfix"></div>
           <input className={styles.formInput} name="spending" defaultValue={this.state.spending}/>
           </div>
+
+
+          
 
           <div class="form-element">
           <label className={styles.formLabel}
