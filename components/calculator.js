@@ -5,25 +5,8 @@ export default class Calculator extends React.Component{
         super(props);
         this.calculate = this.calculate.bind(this);
         //delet thies newphew
-        this.extraIncome =[
-            {
-                value: 175000,
-                startAge: 30,
-                endAge: 48
-            },
-            {
-                 value: 10000,
-                 startAge: 31,
-                 endAge: 32
-             }
-        ]
-        this.extraExpenses = [
-            {
-                value: 30000,
-                startAge: 28,
-                endAge: 40
-            }
-        ]
+        this.extraIncome =[]
+        this.extraExpenses = []
     }
 
     flattenExtraItems = (extraIncomes, extraExpenses) => {

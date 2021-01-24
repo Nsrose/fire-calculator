@@ -9,7 +9,7 @@
     margin-right: 10px;
     margin-left:20px;
     height:800px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .formLabel {
@@ -75,6 +75,38 @@
     margin-bottom: 10px;
 }
 
+.formContainer::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+  background-color: #CCCCCC;
+}
+
+.formContainer::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.formContainer::-webkit-scrollbar-thumb
+{
+  background-color: #FFF;
+  background-image: -webkit-linear-gradient(90deg,
+                                            rgba(0, 0, 0, 1) 0%,
+                        rgba(0, 0, 0, 1) 25%,
+                        transparent 100%,
+                        rgba(0, 0, 0, 1) 75%,
+                        transparent)
+}
+.formElement:hover {
+    background: rgba(204, 0, 255, 0.7);
+}
+
+.formElement {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
 .formGroupMoreContainer {
 
 }
@@ -87,5 +119,5 @@
 
 .moreText {
 
-  
+
 }
