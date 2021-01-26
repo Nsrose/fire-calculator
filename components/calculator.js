@@ -4,9 +4,6 @@ export default class Calculator extends React.Component{
     constructor(props) {
         super(props);
         this.calculate = this.calculate.bind(this);
-        //delet thies newphew
-        this.extraIncome =[]
-        this.extraExpenses = []
     }
 
     flattenExtraItems = (extraIncomes, extraExpenses) => {
@@ -47,7 +44,7 @@ export default class Calculator extends React.Component{
 
 
 
-    calculate = (state) => {
+    calculate = (state, extraIncome, extraExpenses) => {
         // Extracted values from input form
         var age = parseInt(state.age);
         var investments = parseFloat(state.investments);
@@ -88,7 +85,8 @@ export default class Calculator extends React.Component{
         var year;
         var i;
         var indexofFireYear = 0;
-        var extraItems = this.flattenExtraItems(this.extraIncome, this.extraExpenses);
+
+        var extraItems = this.flattenExtraItems(extraIncome, extraExpenses);
         for (year = age + 1, i=0; year <= 100; year++, i++) {
             // Grow income according to yearly income growth rate
             if (year == 28) {

@@ -95,7 +95,7 @@ class FixedPercentageGraph extends React.Component {
       }
     });
 
-    var calculationResult = this.calculator.calculate(this.defaults);
+    var calculationResult = this.calculator.calculate(this.defaults, [], []);
     this.handleUpdate(calculationResult);
    
   }
