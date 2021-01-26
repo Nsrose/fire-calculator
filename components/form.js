@@ -201,7 +201,7 @@ export default class InputsForm extends React.Component {
             <div className={styles.moreText}>Add extra income and expenses (children, home purchase, real estate revenue)</div>
             <div className={styles.moreAction}>
               <Image 
-                src="/../public/images/plus-icon-2.png"
+                src="/images/plus-icon-2.png"
                 width="30px"
                 height="30px"
               />

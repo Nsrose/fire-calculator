@@ -87,7 +87,7 @@ export default class ExtraElement extends React.Component {
 				</button>
 				<div className={extraElementStyles.close}
 					onClick={this.close}>
-					<Image src="/../public/images/close-icon.png"
+					<Image src="/images/close-icon.png"
 					width="10px"
 					height="10px"/>
 				</div>
