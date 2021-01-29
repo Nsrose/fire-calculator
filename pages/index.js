@@ -13,13 +13,13 @@ export default class Home extends React.Component {
     this.chartReference = React.createRef();
     this.formReference = React.createRef();
     this.defaults = {
-      "age" : 26,
-      "investments" : 417300,
+      "age" : 25,
+      "investments" : 50000,
       "stocks" : "90%",
       "bonds" : "7%",
       "cash" : "3%",
-      "income" : 141000.00,
-      "spending" : 72000.00,
+      "income" : 90000.00,
+      "spending" : 40000.00,
       "incomeGrowth" : "2%",
       "retirementSpending" : 100000.00,
       "withdrawalRate" : "4%",
