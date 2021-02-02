@@ -41,6 +41,13 @@ export default class Calculator extends React.Component{
     }
 
 
+    dealWithPercentage = (input) => {
+        var result;
+        if (input.includes("%")) {
+            return parseFloat(input.slice(0, -1)) / 100;
+        }
+        return parseFloat(input) / 100;
+    }
 
 
 
@@ -48,17 +55,20 @@ export default class Calculator extends React.Component{
         // Extracted values from input form
         var age = parseInt(state.age);
         var investments = parseFloat(state.investments);
-        var stocks = parseFloat(state.stocks.slice(0, -1)) / 100;
-        var bonds = parseFloat(state.bonds.slice(0, -1)) / 100;
-        var cash = parseFloat(state.cash.slice(0, -1)) / 100;
+        var stocks = this.dealWithPercentage(state.stocks);
+        var bonds = this.dealWithPercentage(state.bonds);
+        var cash = this.dealWithPercentage(state.cash);
         var income = parseFloat(state.income);
         var spending = parseFloat(state.spending);
-        var incomeGrowth = parseFloat(state.incomeGrowth.slice(0, -1)) / 100;
+        var incomeGrowth = this.dealWithPercentage(state.incomeGrowth);
         var retirementSpending = parseFloat(state.retirementSpending);
-        var withdrawalRate = parseFloat(state.withdrawalRate.slice(0, -1)) / 100;
-        var retirementTaxRate = parseFloat(state.retirementTaxRate.slice(0, -1)) / 100;
-        var stockReturns = parseFloat(state.stockReturns.slice(0, -1)) / 100;
-        var bondReturns = parseFloat(state.bondReturns.slice(0, -1)) / 100;
+
+        var withdrawalRate = this.dealWithPercentage(state.withdrawalRate);
+
+        var retirementTaxRate = this.dealWithPercentage(state.retirementTaxRate);
+
+        var stockReturns = this.dealWithPercentage(state.stockReturns);
+        var bondReturns = this.dealWithPercentage(state.bondReturns);
 
         // Derived values from inputs
         var annualSavings = income - spending;
