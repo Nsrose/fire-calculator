@@ -20,6 +20,7 @@ export default class InputsForm extends React.Component {
   }
 
   handleUpdate = () => {
+    // debugger;
     var unfolded = this.unfoldExtraElements();
     this.props.graph.current.handleUpdate(this.props.graph.current.calculator.calculate(this.props.defaults, unfolded.extraIncome, unfolded.extraExpenses));
   }
@@ -39,6 +40,7 @@ export default class InputsForm extends React.Component {
             parent={this}
             ref={newElementReference}
             index={this.state.extraElements.length}
+            key={this.state.extraElements.length}
            />
           )
     })
@@ -79,14 +81,6 @@ export default class InputsForm extends React.Component {
 
   }
 
-  // addExtraIncomeExpenseToCalculation = () => {
-  //   var unfolded = this.unfoldExtraElements();
-
-  //   this.props.graph.current.handleUpdate(this.props.graph.current.calculator.calculate(this.props.defaults, unfolded.extraIncome, unfolded.extraExpenses));
-    
-
-  // }
-
 
 
   render() {
@@ -103,9 +97,15 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}>
           <label className={styles.formLabel} 
-          data-tip="Your current total net worth, including all <br>investments, retirement accounts, and cash">Initial Net Worth</label>
+          >Initial Net Worth</label>
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Your current total net worth, including all <br>investments, retirement accounts, and cash"
+          />
           <ReactTooltip backgroundColor="rgba(72, 64, 187, 1)"
-          multiline="true"
+          multiline={true}
           place="left"/>
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="investments"  defaultValue={this.props.defaults.investments}/>
@@ -113,8 +113,13 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="The percentage of your net worth allocated in stocks">Stocks</label>
-
+          >Stocks</label>
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="The percentage of your net worth allocated in stocks"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="stocks" defaultValue={this.props.defaults.stocks}/>
           </div>
@@ -122,14 +127,25 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}> 
           <label className={styles.formLabel}
-          data-tip="The percentage of your net worth allocated in bonds">Bonds</label>
+          >Bonds</label>
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="The percentage of your net worth allocated in bonds"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="bonds" defaultValue={this.props.defaults.bonds}/>
           </div>
 
           <div className={styles.formElement}>
-          <label className={styles.formLabel}
-          data-tip="The percentage of your net worth allocated in cash">Cash</label> 
+          <label className={styles.formLabel}>Cash</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="The percentage of your net worth allocated in cash"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="cash" defaultValue={this.props.defaults.cash}/>
           </div>
@@ -137,14 +153,26 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Your yearly income, including bonuses <br> and equity, with taxes subtracted out">Post-Tax Income</label> 
+          >Post-Tax Income</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Your yearly income, including bonuses <br> and equity, with taxes subtracted out"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="income" defaultValue={this.props.defaults.income}/>
           </div>
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Your yearly expenses, including things like groceries, <br>shopping, travel, gifts, and entertainment">Current Yearly Spending</label> 
+          >Current Yearly Spending</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Your yearly expenses, including things like groceries, <br>shopping, travel, gifts, and entertainment"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="spending" defaultValue={this.props.defaults.spending}/>
           </div>
@@ -154,7 +182,13 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Your anticipated annual rate of growth in your income">Income Growth Rate</label> 
+          >Income Growth Rate</label> 
+           <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Your anticipated annual rate of growth in your income"
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="incomeGrowth" defaultValue={this.props.defaults.incomeGrowth}/>
           </div>
@@ -162,14 +196,26 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}> 
           <label className={styles.formLabel}
-          data-tip="How much you plan to spend each year during retirement, which should<br> factor in house payments, vacations, education, and healthcare costs.">Retirement Yearly Spending</label> 
+          >Retirement Yearly Spending</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="How much you plan to spend each year during retirement, which should<br> factor in house payments, vacations, education, and healthcare costs."
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="retirementSpending" defaultValue={this.props.defaults.retirementSpending}/>
           </div>
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="The percentage of your savings you plan to liquidate each year. 4% is generally considered a safe amount.">Withdrawal Rate</label> 
+          >Withdrawal Rate</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="The percentage of your savings you plan to liquidate each year. 4% is generally considered a safe amount."
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="withdrawalRate" defaultValue={this.props.defaults.withdrawalRate}/>
           </div>
@@ -177,21 +223,39 @@ export default class InputsForm extends React.Component {
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Your expected average tax rate during retirement.">Average Retirement Tax Rate</label> 
+          >Average Retirement Tax Rate</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Your expected average tax rate during retirement."
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="retirementTaxRate" defaultValue={this.props.defaults.retirementTaxRate}/>
           </div>
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Expected average returns for your equity holdings. <br>8.1% is a conservative historical estimate.">Stock returns</label> 
+          >Stock returns</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Expected average returns for your equity holdings. <br>8.1% is a conservative historical estimate."
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="stockReturns" defaultValue={this.props.defaults.stockReturns}/>
           </div>
 
           <div className={styles.formElement}>
           <label className={styles.formLabel}
-          data-tip="Expected average returns for your bond holdings.<br>2.4% is an average historical estimate.">Bond returns</label> 
+          >Bond returns</label> 
+          <Image 
+          src="/images/info-icon.png"
+          width="15px"
+          height="15px"
+          data-tip="Expected average returns for your bond holdings.<br>2.4% is an average historical estimate."
+          />
           <div className={styles.clearfix}></div>
           <input className={styles.formInput} name="bondReturns" defaultValue={this.props.defaults.bondReturns}/>
           </div>
@@ -218,4 +282,5 @@ export default class InputsForm extends React.Component {
     );
   }
 };
+
 

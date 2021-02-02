@@ -19,20 +19,17 @@ export default class ExtraElement extends React.Component {
 	}
 
 	toggleOneTime = (event) => {
+
 		if (this.state.oneTime) {
 			this.setState({
 				oneTime: !this.state.oneTime,
 				endAge: this.endAgeRef.current.value
-			}, function() {
-				this.handleChange(null);
-			})
-		} else {
+			}, () => this.handleChange())
+		} else if (!this.state.oneTime) {
 			this.setState({
 				oneTime: !this.state.oneTime,
 				endAge: this.state.startAge
-			}, function () {
-				this.handleChange(null);
-			})
+			}, () => this.handleChange())
 		}
 		
 	}
@@ -47,17 +44,36 @@ export default class ExtraElement extends React.Component {
 	}
 
 	handleChange = (e) => {
+
 		if (e) {
 			var name = e.target.name;
-			var value;
 			if (name == 'value') {
-				value = parseFloat(e.target.value);
-			} else if (name == "startAge" || name == "endAge") {
-				value = parseInt(e.target.value);
+				this.setState({
+					value: parseFloat(e.target.value)
+				}, () => this.props.parent.handleUpdate());
+			} else if (name == "startAge") {
+				if (this.state.oneTime && this.state.endAge == 0) {
+					// debugger;
+					this.setState({
+						startAge: parseInt(e.target.value),
+						endAge: parseInt(e.target.value)
+					}, ()  => this.props.parent.handleUpdate());
+				} else {
+					this.setState({
+						startAge: parseInt(e.target.value)
+					}, ()  => this.props.parent.handleUpdate());
+				}
+				
+				
+			} else if (name == "endAge") {
+				this.setState({
+					endAge: parseInt(e.target.value)
+				}, ()  => this.props.parent.handleUpdate());
 			}
-			this.state[name] = value;
+		} else {
+			this.props.parent.handleUpdate();	
 		}
-		this.props.parent.handleUpdate();
+		
 		
 	}
 

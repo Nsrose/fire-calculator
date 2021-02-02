@@ -18,8 +18,8 @@ export default class Home extends React.Component {
       "stocks" : "90%",
       "bonds" : "7%",
       "cash" : "3%",
-      "income" : 90000.00,
-      "spending" : 40000.00,
+      "income" : 50000.00,
+      "spending" : 30000.00,
       "incomeGrowth" : "2%",
       "retirementSpending" : 100000.00,
       "withdrawalRate" : "4%",
@@ -66,7 +66,7 @@ export default class Home extends React.Component {
           </p>
 
 
-         <div class="float-container">
+         <div className={styles.floatContainer}>
             <InputsForm 
             graph={this.chartReference}
             defaults={this.defaults}
