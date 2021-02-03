@@ -103,7 +103,6 @@ class FixedPercentageGraph extends React.Component {
   addLine = (line, label, color, datasetIndex) => {
     this.myChart.data.datasets[datasetIndex].data = line;
     this.myChart.data.datasets[datasetIndex].label = label;
-    // this.myChart.data.datasets[datasetIndex].fill = true;
     this.myChart.data.datasets[datasetIndex].borderColor = color;
     this.myChart.data.datasets[datasetIndex].pointRadius = 1;
     this.myChart.data.datasets[datasetIndex].pointHoverRadius = 20;

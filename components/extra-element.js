@@ -44,7 +44,6 @@ export default class ExtraElement extends React.Component {
 	}
 
 	handleChange = (e) => {
-
 		if (e) {
 			var name = e.target.name;
 			if (name == 'value') {
@@ -57,7 +56,7 @@ export default class ExtraElement extends React.Component {
 					this.setState({
 						startAge: parseInt(e.target.value),
 						endAge: parseInt(e.target.value)
-					}, ()  => this.props.parent.handleUpdate());
+					}, () => this.props.parent.handleUpdate(this.state));
 				} else {
 					this.setState({
 						startAge: parseInt(e.target.value)
@@ -85,7 +84,7 @@ export default class ExtraElement extends React.Component {
 
 
 	render () {
-		return <form className={styles.formElement} onChange={(e) => this.handleChange(e)}>
+		return <form className={styles.formElement} onBlur={(e) => this.handleChange(e)}>
 				<label className={styles.formLabel}>Extra</label> 
 				<button className={extraElementStyles.button}
 					onClick={this.handleExpenseOrIncomeChange}
@@ -107,19 +106,19 @@ export default class ExtraElement extends React.Component {
 					width="10px"
 					height="10px"/>
 				</div>
-				<div class={styles.clearfix}></div>
-				<div class={extraElementStyles.inputContainer}>
-					<div class={extraElementStyles.inputValueContainer}>
+				<div className={styles.clearfix}></div>
+				<div className={extraElementStyles.inputContainer}>
+					<div className={extraElementStyles.inputValueContainer}>
 		           		Total amount: <input className={styles.formInput} name="value"/>
 		           	</div>
-		           	<div class={extraElementStyles.inputDurationContainer}>
+		           	<div className={extraElementStyles.inputDurationContainer}>
 		           		One-time?<input name="durationSelector" type="checkbox"
 					           		onChange={(e) => this.toggleOneTime(e)}/>
 		           	</div>
-		           	<div class={extraElementStyles.inputStartAge}>
+		           	<div className={extraElementStyles.inputStartAge}>
 		           		{!this.state.oneTime ? 'Start ' : ''}Age: <input className={styles.formInput} name="startAge"/>
 		           	</div>
-		           	<div class={extraElementStyles.inputEndAge}
+		           	<div className={extraElementStyles.inputEndAge}
 		           		style={{
 		           			display: !this.state.oneTime ? "block" : "none"
 		           		}}

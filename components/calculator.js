@@ -42,6 +42,7 @@ export default class Calculator extends React.Component{
 
 
     dealWithPercentage = (input) => {
+
         var result;
         if (input.includes("%")) {
             return parseFloat(input.slice(0, -1)) / 100;
@@ -50,25 +51,24 @@ export default class Calculator extends React.Component{
     }
 
 
-
     calculate = (state, extraIncome, extraExpenses) => {
         // Extracted values from input form
-        var age = parseInt(state.age);
-        var investments = parseFloat(state.investments);
-        var stocks = this.dealWithPercentage(state.stocks);
-        var bonds = this.dealWithPercentage(state.bonds);
-        var cash = this.dealWithPercentage(state.cash);
-        var income = parseFloat(state.income);
-        var spending = parseFloat(state.spending);
-        var incomeGrowth = this.dealWithPercentage(state.incomeGrowth);
-        var retirementSpending = parseFloat(state.retirementSpending);
+        var age = parseInt(state.age.value);
+        var investments = parseFloat(state.investments.value);
+        var stocks = this.dealWithPercentage(state.stocks.value);
+        var bonds = this.dealWithPercentage(state.bonds.value);
+        var cash = this.dealWithPercentage(state.cash.value);
+        var income = parseFloat(state.income.value);
+        var spending = parseFloat(state.spending.value);
+        var incomeGrowth = this.dealWithPercentage(state.incomeGrowth.value);
+        var retirementSpending = parseFloat(state.retirementSpending.value);
 
-        var withdrawalRate = this.dealWithPercentage(state.withdrawalRate);
+        var withdrawalRate = this.dealWithPercentage(state.withdrawalRate.value);
 
-        var retirementTaxRate = this.dealWithPercentage(state.retirementTaxRate);
+        var retirementTaxRate = this.dealWithPercentage(state.retirementTaxRate.value);
 
-        var stockReturns = this.dealWithPercentage(state.stockReturns);
-        var bondReturns = this.dealWithPercentage(state.bondReturns);
+        var stockReturns = this.dealWithPercentage(state.stockReturns.value);
+        var bondReturns = this.dealWithPercentage(state.bondReturns.value);
 
         // Derived values from inputs
         var annualSavings = income - spending;
@@ -97,11 +97,9 @@ export default class Calculator extends React.Component{
         var indexofFireYear = 0;
 
         var extraItems = this.flattenExtraItems(extraIncome, extraExpenses);
-        for (year = age + 1, i=0; year <= 100; year++, i++) {
+        for (year = age + 1, i=1; year <= 100; year++, i++) {
             // Grow income according to yearly income growth rate
-            if (year == 28) {
-                // debugger;
-            }
+
             nextYearIncome = (1 + incomeGrowth) * nextYearIncome;
 
             // Add income & subtract extra expenses if user provided them
@@ -112,11 +110,15 @@ export default class Calculator extends React.Component{
 
             // This is how much the user saves this year now 
             nextYearSaved = nextYearIncome - spending + nextYearExtraIncomeExpense;
-
-
-            endOfYearSavings = (previousYearSavings + nextYearSaved) * cash * 1 
-            + (previousYearSavings)*bonds*(1+bondReturns) + nextYearSaved*bonds*(1+bondReturns)**0.5 
-            + (previousYearSavings)*stocks*(1+stockReturns) + nextYearSaved*stocks*(1+stockReturns)**0.5;
+            // debugger;
+            if (data[i-1].endOfYearSavings > 0) {
+                endOfYearSavings = (previousYearSavings + nextYearSaved) * cash * 1 
+                + (previousYearSavings)*bonds*(1+bondReturns) + nextYearSaved*bonds*(1+bondReturns)**0.5 
+                + (previousYearSavings)*stocks*(1+stockReturns) + nextYearSaved*stocks*(1+stockReturns)**0.5;
+            } else {
+                endOfYearSavings = (data[i-1].endOfYearSavings+ nextYearSaved);
+            }
+            
 
             data.push({
                 "year" : year,

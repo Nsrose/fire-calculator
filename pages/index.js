@@ -13,20 +13,95 @@ export default class Home extends React.Component {
     this.chartReference = React.createRef();
     this.formReference = React.createRef();
     this.defaults = {
-      "age" : 25,
-      "investments" : 50000,
-      "stocks" : "90%",
-      "bonds" : "7%",
-      "cash" : "3%",
-      "income" : 50000.00,
-      "spending" : 30000.00,
-      "incomeGrowth" : "2%",
-      "retirementSpending" : 100000.00,
-      "withdrawalRate" : "4%",
-      "retirementTaxRate" : "7%",
-      "stockReturns" : "8.1%",
-      "bondReturns" : "2.4%"
+      age : {
+        value: 25,
+        userName: "Age",
+        dataTip: "Your current age",
+        name: "age"
+      },
+      investments: {
+        value: 50000,
+        userName: "Initial Net Worth",
+        dataTip: "Your current total net worth, including all <br>investments, retirement accounts, and cash",
+        name: 'investments'
+
+      },
+      stocks: {
+        value: "90%",
+        userName: "Stocks",
+        dataTip: "The percentage of your net worth allocated in stocks",
+        name: "stocks"
+      },
+      bonds: {
+        value: "7%",
+        userName: "Bonds",
+        dataTip: "The percentage of your net worth allocated in bonds",
+        name: "bonds"
+      },
+      cash: {
+        value: "3%",
+        userName: "Cash",
+        dataTip: "The percentage of your net worth allocated in cash",
+        name: "cash"
+      },
+      income: {
+        value: 50000.00,
+        userName: "Post-Tax Income",
+        dataTip: "Your yearly income, including bonuses <br> and equity, with taxes subtracted out",
+        name: "income"
+      },
+      spending: {
+        value: 30000.00,
+        userName: "Current Yearly Spending",
+        dataTip: "Your yearly expenses, including things like groceries, <br>shopping, travel, gifts, and entertainment",
+        name: "spending"
+      },
+      incomeGrowth: {
+        value: "2%",
+        userName: "Income Growth Rate",
+        dataTip: "Your anticipated annual rate of growth in your income",
+        name: "incomeGrowth"
+      },
+      retirementSpending: {
+        value: 100000.00,
+        userName: "Retirement Yearly Spending",
+        dataTip: "How much you plan to spend each year during retirement, which should<br> factor in house payments, vacations, education, and healthcare costs.",
+        name: "retirementSpending"
+      },
+      withdrawalRate: {
+        value: "4%",
+        userName: "Withdrawal Rate",
+        dataTip: "The percentage of your savings you plan to liquidate each year. 4% is generally considered a safe amount.",
+        name: "withdrawalRate"
+      },
+      retirementTaxRate: {
+        value: "7%",
+        userName: "Average Retirement Tax Rate",
+        dataTip: "Your expected average tax rate during retirement.",
+        name: "retirementTaxRate"
+      },
+      stockReturns: {
+        value: "8.1%",
+        userName: "Stock Returns",
+        dataTip: "Expected average returns for your equity holdings. <br>8.1% is a conservative historical estimate.",
+        name: "stockReturns"
+      },
+      bondReturns: {
+        value: "2.4%",
+        userName: "Bond Returns",
+        dataTip: "Expected average returns for your bond holdings.<br>2.4% is an average historical estimate.",
+        name: "bondReturns"
+      },
     };
+  }
+
+  componentDidMount() {
+      for (var key in this.defaults) {
+        var value = window.localStorage.getItem(key) || this.defaults[key];
+
+        
+      }
+      
   }
 
 
