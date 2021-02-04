@@ -19,7 +19,6 @@ export default class ExtraElement extends React.Component {
 	}
 
 	toggleOneTime = (event) => {
-
 		if (this.state.oneTime) {
 			this.setState({
 				oneTime: !this.state.oneTime,

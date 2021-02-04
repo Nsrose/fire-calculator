@@ -15,36 +15,30 @@ export default class InputsForm extends React.Component {
 
   constructor(props) {
     super(props);
-    var formElements =[];
-    for (var name in this.props.defaults) {
-      var newFormElementRef = React.createRef();
-      formElements.push(
-        <FormElement
-        name={name}
-        userName={this.props.defaults[name].userName}
-        value={this.props.defaults[name].value}
-        dataTip={this.props.defaults[name].dataTip}
-        key={formElements.length}
-        />
-        )
-    }
     this.state = {
       extraElements: [],
-      formElements: formElements
+      formElements: []
     }
-
   }
 
-  handleUpdate = (state) => {
+  handleUpdate = () => {
+    // debugger;
     var unfolded = this.unfoldExtraElements();
     this.props.graph.current.handleUpdate(this.props.graph.current.calculator.calculate(this.props.defaults, unfolded.extraIncome, unfolded.extraExpenses));
   }
 
   handleChangeToInputForm = (event) => {
     if (this.props.defaults[event.target.name]) {
-      this.props.defaults[event.target.name].value = event.target.value;
+      var newValue = event.target.value;
+      var formElement = this.props.defaults[event.target.name].ref.current;
+      formElement.updateCache(newValue);
+      formElement.setState({
+        value: newValue
+      }, () => this.handleUpdate());
+    } else {
+      this.handleUpdate();  
     }
-    this.handleUpdate();
+    
   }
 
   addExtraIncomeExpenseModule = (event) => {
@@ -105,9 +99,7 @@ export default class InputsForm extends React.Component {
         <form className={styles.testForm} onBlur={(e) => this.handleChangeToInputForm(e)}>
           
 
-        <ReactTooltip backgroundColor="rgba(72, 64, 187, 1)"
-          multiline={true}
-          place="left"/>
+        
 
           {this.state.formElements}
 
