@@ -178,14 +178,20 @@ export default class Home extends React.Component {
               ref={this.chartReference}
               defaults={this.defaults}
             />
+
           </div>
+           <div className={styles.feedback}><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhF7cTfyrgHZdLlHP-OGZKnnvuC6kf1n51h-pKbJTJ_1hbQ/viewform?usp=sf_link"
+         target="_blank">File a bug or feature request</a></div>
+         <div className={styles.clearfix}></div>
+
+
         </div>
 
 
         </main>
-
-         <footer className={styles.footer}>
-          <a
+                 <footer className={styles.footer}>
+         
+          <div><a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
@@ -193,7 +199,7 @@ export default class Home extends React.Component {
             All financial data is processed client-side with {' '}
             <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
           </a>
-          
+          </div>
         </footer>
       </div>
     )

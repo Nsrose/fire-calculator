@@ -141,3 +141,15 @@ width:75%;
   width:100%;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
+.feedback {
+  margin-left:20px;
+  margin-top: 40px;
+  font-size:0.75em;
+}
+.feedback:hover {
+  text-decoration: underline;
+}
