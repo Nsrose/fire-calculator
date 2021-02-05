@@ -32,7 +32,7 @@ class FixedPercentageGraph extends React.Component {
             duration: 3000, // general animation time
         },
         title: {
-          text: "Fixed Percentage Graph",
+          text: "FIRE Graph",
           display: true,
           fontSize: 24
         },
