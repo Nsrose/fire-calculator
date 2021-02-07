@@ -1,5 +1,8 @@
 import React from "react";
 
+
+
+
 export default class Calculator extends React.Component{
     constructor(props) {
         super(props);
@@ -50,6 +53,10 @@ export default class Calculator extends React.Component{
         return parseFloat(input) / 100;
     }
 
+    parseCurrency = (input) => {
+        return Number(input.replace(/[^0-9\.-]+/g,""));
+    }
+
     getValueFromState = (element) => {
         if (element.ref.current) {
             return element.ref.current.state.value;
@@ -59,16 +66,17 @@ export default class Calculator extends React.Component{
 
 
     calculate = (state, extraIncome, extraExpenses) => {
+
         // Extracted values from input form
         var age = parseInt(this.getValueFromState(state.age));
-        var investments = parseFloat(this.getValueFromState(state.investments));
+        var investments = this.parseCurrency(this.getValueFromState(state.investments));
         var stocks = this.dealWithPercentage(this.getValueFromState(state.stocks));
         var bonds = this.dealWithPercentage(this.getValueFromState(state.bonds));
         var cash = this.dealWithPercentage(this.getValueFromState(state.cash));
-        var income = parseFloat(this.getValueFromState(state.income));
-        var spending = parseFloat(this.getValueFromState(state.spending));
+        var income = this.parseCurrency(this.getValueFromState(state.income));
+        var spending = this.parseCurrency(this.getValueFromState(state.spending));
         var incomeGrowth = this.dealWithPercentage(this.getValueFromState(state.incomeGrowth));
-        var retirementSpending = parseFloat(this.getValueFromState(state.retirementSpending));
+        var retirementSpending = this.parseCurrency(this.getValueFromState(state.retirementSpending));
 
         var withdrawalRate = this.dealWithPercentage(this.getValueFromState(state.withdrawalRate));
 

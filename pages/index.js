@@ -12,13 +12,14 @@ const DEFAULTS = {
         value: 25,
         userName: "Age",
         dataTip: "Your current age",
-        name: "age",
+        name: "age"
       },
       investments: {
         value: 50000,
         userName: "Initial Net Worth",
         dataTip: "Your current total net worth, including all <br>investments, retirement accounts, and cash",
         name: 'investments',
+        isCurrency: true
 
       },
       stocks: {
@@ -44,12 +45,14 @@ const DEFAULTS = {
         userName: "Post-Tax Income",
         dataTip: "Your yearly income, including bonuses <br> and equity, with taxes subtracted out",
         name: "income",
+        isCurrency: true
       },
       spending: {
         value: 30000.00,
         userName: "Current Yearly Spending",
         dataTip: "Your yearly expenses, including things like groceries, <br>shopping, travel, gifts, and entertainment",
         name: "spending",
+        isCurrency: true
       },
       incomeGrowth: {
         value: "2%",
@@ -62,6 +65,7 @@ const DEFAULTS = {
         userName: "Retirement Yearly Spending",
         dataTip: "How much you plan to spend each year during retirement, which should<br> factor in house payments, vacations, education, and healthcare costs.",
         name: "retirementSpending",
+        isCurrency: true
       },
       withdrawalRate: {
         value: "4%",
@@ -89,6 +93,7 @@ const DEFAULTS = {
         name: "bondReturns",
       },
 }
+
 
 
 

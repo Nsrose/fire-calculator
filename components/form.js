@@ -9,6 +9,12 @@ import FormElement from "../components/form-element";
 import ExtraElement from '../components/extra-element';
 
 
+const CURRENCY_FIELDS = new Set([
+  "investments",
+  "income",
+  "spending",
+  "retirementSpending"
+])
 
 export default class InputsForm extends React.Component {
   
@@ -22,7 +28,6 @@ export default class InputsForm extends React.Component {
   }
 
   handleUpdate = () => {
-    // debugger;
     var unfolded = this.unfoldExtraElements();
     this.props.graph.current.handleUpdate(this.props.graph.current.calculator.calculate(this.props.defaults, unfolded.extraIncome, unfolded.extraExpenses));
   }

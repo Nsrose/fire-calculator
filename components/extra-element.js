@@ -1,7 +1,8 @@
 import React from "react";
 import styles from '../styles/Form.module.css'
 import extraElementStyles from '../styles/ExtraElement.module.css'
-import Image from 'next/image'
+import Image from 'next/image';
+import CurrencyInput from 'react-currency-input';
 
 
 
@@ -33,6 +34,10 @@ export default class ExtraElement extends React.Component {
 		
 	}
 
+	getValue = () => {
+		return this.parseCurrency(this.state.value);
+	}
+
 	handleExpenseOrIncomeChange = (e) => {
 		e.preventDefault();
 		this.setState({
@@ -42,16 +47,19 @@ export default class ExtraElement extends React.Component {
 		})
 	}
 
+	parseCurrency = (input) => {
+        return Number(input.replace(/[^0-9\.-]+/g,""));
+    }
+
 	handleChange = (e) => {
 		if (e) {
 			var name = e.target.name;
 			if (name == 'value') {
 				this.setState({
-					value: parseFloat(e.target.value)
+					value: this.parseCurrency(e.target.value)
 				}, () => this.props.parent.handleUpdate());
 			} else if (name == "startAge") {
 				if (this.state.oneTime && this.state.endAge == 0) {
-					// debugger;
 					this.setState({
 						startAge: parseInt(e.target.value),
 						endAge: parseInt(e.target.value)
@@ -108,7 +116,7 @@ export default class ExtraElement extends React.Component {
 				<div className={styles.clearfix}></div>
 				<div className={extraElementStyles.inputContainer}>
 					<div className={extraElementStyles.inputValueContainer}>
-		           		Total amount: <input className={styles.formInput} name="value"/>
+		           		Total amount: <CurrencyInput prefix="$" name="value" value={this.state.value} className={styles.formInput}/>
 		           	</div>
 		           	<div className={extraElementStyles.inputDurationContainer}>
 		           		One-time?<input name="durationSelector" type="checkbox"

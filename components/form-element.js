@@ -3,8 +3,14 @@ import ReactDOM from "react-dom";
 import Image from 'next/image';
 import styles from '../styles/Form.module.css'
 import ReactTooltip from 'react-tooltip';
+import CurrencyInput from 'react-currency-input';
 
-
+const CURRENCY_FIELDS = new Set([
+  "investments",
+  "income",
+  "spending",
+  "retirementSpending"
+])
 
 
 
@@ -18,6 +24,7 @@ export default class FormElement extends React.Component {
 			dataTip: this.props.dataTip,
 			ref: this.props.ref
 		}
+		// debugger;
 	}
 
 	updateCache = (newValue) => {
@@ -50,7 +57,10 @@ export default class FormElement extends React.Component {
 		          data-tip={this.state.dataTip}
 		          />
 	          	<div className={styles.clearfix}></div>
-	          	<input className={styles.formInput} name={this.state.name} defaultValue={this.state.value}/>
+	          	{CURRENCY_FIELDS.has(this.state.name)
+        			? <CurrencyInput value={this.state.value} prefix="$" name={this.state.name} className={styles.formInput}/>
+        			: <input className={styles.formInput} name={this.state.name} defaultValue={this.state.value}/>
+      			}
 	         </div>
 
 	         </div>
