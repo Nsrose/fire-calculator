@@ -7,6 +7,8 @@ import ReactTooltip from 'react-tooltip';
 import Image from 'next/image';
 import FormElement from "../components/form-element";
 import ExtraElement from '../components/extra-element';
+import {dealWithPercentage} from "../components/util";
+
 
 
 const CURRENCY_FIELDS = new Set([
@@ -33,6 +35,7 @@ export default class InputsForm extends React.Component {
   }
 
   handleChangeToInputForm = (event) => {
+  
     if (this.props.defaults[event.target.name]) {
       var newValue = event.target.value;
       var formElement = this.props.defaults[event.target.name].ref.current;

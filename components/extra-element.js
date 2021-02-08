@@ -3,6 +3,7 @@ import styles from '../styles/Form.module.css'
 import extraElementStyles from '../styles/ExtraElement.module.css'
 import Image from 'next/image';
 import CurrencyInput from 'react-currency-input';
+import {parseCurrency} from '../components/util';
 
 
 
@@ -47,16 +48,12 @@ export default class ExtraElement extends React.Component {
 		})
 	}
 
-	parseCurrency = (input) => {
-        return Number(input.replace(/[^0-9\.-]+/g,""));
-    }
-
 	handleChange = (e) => {
 		if (e) {
 			var name = e.target.name;
 			if (name == 'value') {
 				this.setState({
-					value: this.parseCurrency(e.target.value)
+					value: parseCurrency(e.target.value)
 				}, () => this.props.parent.handleUpdate());
 			} else if (name == "startAge") {
 				if (this.state.oneTime && this.state.endAge == 0) {

@@ -1,5 +1,5 @@
 import React from "react";
-
+import {dealWithPercentage, parseCurrency} from '../components/util';
 
 
 
@@ -44,18 +44,7 @@ export default class Calculator extends React.Component{
     }
 
 
-    dealWithPercentage = (input) => {
-
-        var result;
-        if (input.includes("%")) {
-            return parseFloat(input.slice(0, -1)) / 100;
-        }
-        return parseFloat(input) / 100;
-    }
-
-    parseCurrency = (input) => {
-        return Number(input.replace(/[^0-9\.-]+/g,""));
-    }
+    
 
     getValueFromState = (element) => {
         if (element.ref.current) {
@@ -69,21 +58,21 @@ export default class Calculator extends React.Component{
 
         // Extracted values from input form
         var age = parseInt(this.getValueFromState(state.age));
-        var investments = this.parseCurrency(this.getValueFromState(state.investments));
-        var stocks = this.dealWithPercentage(this.getValueFromState(state.stocks));
-        var bonds = this.dealWithPercentage(this.getValueFromState(state.bonds));
-        var cash = this.dealWithPercentage(this.getValueFromState(state.cash));
-        var income = this.parseCurrency(this.getValueFromState(state.income));
-        var spending = this.parseCurrency(this.getValueFromState(state.spending));
-        var incomeGrowth = this.dealWithPercentage(this.getValueFromState(state.incomeGrowth));
-        var retirementSpending = this.parseCurrency(this.getValueFromState(state.retirementSpending));
+        var investments = parseCurrency(this.getValueFromState(state.investments));
+        var stocks = dealWithPercentage(this.getValueFromState(state.stocks));
+        var bonds = dealWithPercentage(this.getValueFromState(state.bonds));
+        var cash = dealWithPercentage(this.getValueFromState(state.cash));
+        var income = parseCurrency(this.getValueFromState(state.income));
+        var spending = parseCurrency(this.getValueFromState(state.spending));
+        var incomeGrowth = dealWithPercentage(this.getValueFromState(state.incomeGrowth));
+        var retirementSpending = parseCurrency(this.getValueFromState(state.retirementSpending));
 
-        var withdrawalRate = this.dealWithPercentage(this.getValueFromState(state.withdrawalRate));
+        var withdrawalRate = dealWithPercentage(this.getValueFromState(state.withdrawalRate));
 
-        var retirementTaxRate = this.dealWithPercentage(this.getValueFromState(state.retirementTaxRate));
+        var retirementTaxRate = dealWithPercentage(this.getValueFromState(state.retirementTaxRate));
 
-        var stockReturns = this.dealWithPercentage(this.getValueFromState(state.stockReturns));
-        var bondReturns = this.dealWithPercentage(this.getValueFromState(state.bondReturns));
+        var stockReturns = dealWithPercentage(this.getValueFromState(state.stockReturns));
+        var bondReturns = dealWithPercentage(this.getValueFromState(state.bondReturns));
 
         // Derived values from inputs
         var annualSavings = income - spending;

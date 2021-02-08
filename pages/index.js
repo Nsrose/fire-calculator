@@ -110,6 +110,8 @@ export default class Home extends React.Component {
       for (var key in DEFAULTS) {
         var storedItem = JSON.parse(window.localStorage.getItem(key)) || DEFAULTS[key];
         window.localStorage.setItem(key, JSON.stringify(storedItem));
+
+
         this.defaults[key] = 
           <FormElement 
           name={storedItem.name}
@@ -130,7 +132,6 @@ export default class Home extends React.Component {
       var calculationResult = this.chartReference.current.calculator.calculate(this.defaults, [], []);
       this.chartReference.current.handleUpdate(calculationResult);
    
-      
   }
 
 
@@ -166,7 +167,7 @@ export default class Home extends React.Component {
           </h1>
 
           <p className={styles.description}>
-            How many years until financial independence?
+            How many years until I can retire?
           </p>
 
 

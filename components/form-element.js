@@ -24,7 +24,6 @@ export default class FormElement extends React.Component {
 			dataTip: this.props.dataTip,
 			ref: this.props.ref
 		}
-		// debugger;
 	}
 
 	updateCache = (newValue) => {
