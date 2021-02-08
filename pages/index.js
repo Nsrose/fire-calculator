@@ -15,7 +15,7 @@ const DEFAULTS = {
         name: "age"
       },
       investments: {
-        value: 50000,
+        value: "$50,000.00",
         userName: "Initial Net Worth",
         dataTip: "Your current total net worth, including all <br>investments, retirement accounts, and cash",
         name: 'investments',
@@ -41,14 +41,14 @@ const DEFAULTS = {
         name: "cash",
       },
       income: {
-        value: 50000.00,
+        value: "$50,000.00",
         userName: "Post-Tax Income",
         dataTip: "Your yearly income, including bonuses <br> and equity, with taxes subtracted out",
         name: "income",
         isCurrency: true
       },
       spending: {
-        value: 30000.00,
+        value: "$30,000.00",
         userName: "Current Yearly Spending",
         dataTip: "Your yearly expenses, including things like groceries, <br>shopping, travel, gifts, and entertainment",
         name: "spending",
@@ -61,7 +61,7 @@ const DEFAULTS = {
         name: "incomeGrowth",
       },
       retirementSpending: {
-        value: 100000.00,
+        value: "$100,000.00",
         userName: "Retirement Yearly Spending",
         dataTip: "How much you plan to spend each year during retirement, which should<br> factor in house payments, vacations, education, and healthcare costs.",
         name: "retirementSpending",
