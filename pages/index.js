@@ -3,9 +3,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import InputsForm from '../components/form'
 import FixedPercentageGraph from '../components/graph';
-import { Doughnut } from 'react-chartjs-2';
-
 import FormElement from "../components/form-element";
+import Education from "../components/education";
 
 const DEFAULTS = {
     age : {
@@ -166,11 +165,12 @@ export default class Home extends React.Component {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            🔥 FIRE Calculator
+            🔥 FIRE Calculator: How Long Until I Can Retire?
           </h1>
 
           <p className={styles.description}>
-            How many years until I can retire?
+          FIRE = Financial Independence, Retire Early
+
           </p>
 
 
@@ -196,9 +196,11 @@ export default class Home extends React.Component {
 
         </div>
 
+        <Education />
+
 
         </main>
-                 <footer className={styles.footer}>
+        <footer className={styles.footer}>
          
           <div><a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
