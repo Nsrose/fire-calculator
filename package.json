@@ -26,5 +26,6 @@
     "react-strap": "0.0.1",
     "react-tooltip": "^4.2.13",
     "reactstrap": "^8.9.0"
-  }
+  },
+  "devDependencies": {}
 }

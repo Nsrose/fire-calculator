@@ -8,7 +8,7 @@ import Image from 'next/image';
 import FormElement from "../components/form-element";
 import ExtraElement from '../components/extra-element';
 import {dealWithPercentage} from "../components/util";
-
+import {isMobile} from 'react-device-detect';
 
 
 const CURRENCY_FIELDS = new Set([
@@ -25,8 +25,17 @@ export default class InputsForm extends React.Component {
     super(props);
     this.state = {
       extraElements: [],
-      formElements: []
+      formElements: [],
+      mobileDevice: isMobile
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      mobileDevice: isMobile
+    }, () => {
+      console.log(isMobile);
+    })
   }
 
   handleUpdate = () => {

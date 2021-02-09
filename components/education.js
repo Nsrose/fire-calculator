@@ -1,5 +1,6 @@
 import React from "react";
 import styles from '../styles/Education.module.css'
+import {isMobile} from 'react-device-detect';
 
 
 export default class Education extends React.Component {
