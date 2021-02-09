@@ -3,16 +3,12 @@ import { Line, Chart} from 'react-chartjs-2';
 import Calculator from "../components/calculator";
 import * as ChartAnnotation from 'chartjs-plugin-annotation';
 import styles from '../styles/Home.module.css';
+import {isMobile} from 'react-device-detect';
+import {formatter} from '../components/util';
 
 
 Chart.pluginService.register( ChartAnnotation);
 
-
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-  })
 
 class FixedPercentageGraph extends React.Component {
   constructor(props) {
@@ -20,17 +16,20 @@ class FixedPercentageGraph extends React.Component {
     this.canvasRef = React.createRef();
     this.defaults = this.props.defaults;
     this.calculator = new Calculator();
+    this.state = {};
   }
 
 
   componentDidMount = () => {
+    
+
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'line',
       options: 
       {
         maintainAspectRatio : false,
         animation: {
-            duration: 3000, // general animation time
+            duration: 3000,
         },
         title: {
           text: "FIRE Graph",
@@ -94,8 +93,9 @@ class FixedPercentageGraph extends React.Component {
       }
     });
 
-    // var calculationResult = this.calculator.calculate(this.defaults, [], []);
-    // this.handleUpdate(calculationResult);
+
+
+  
    
   }
 
@@ -113,6 +113,10 @@ class FixedPercentageGraph extends React.Component {
     var fireYear = calculationResult.fireYear;
     var newData = calculationResult.data;
     var fireTarget = calculationResult.fireTarget;
+    if (this.props.parent) {
+      this.props.parent.setState({fireYear: fireYear, fireTarget: formatter.format(fireTarget)});  
+    }
+    
 
     var endOfYearSavingsLine = [];
     var initialLine = [];
@@ -141,10 +145,8 @@ class FixedPercentageGraph extends React.Component {
     this.myChart.data.datasets[2].fill = 1;
 
 
-    // Vertical line for the fire year
-    this.myChart.options.annotation = {
-      annotations: [
-        {
+    // Vertical line for the  year
+    var yearAnnotation = {
           type: "line",
           mode: 'vertical',
           scaleID: 'x-axis-0',
@@ -152,7 +154,25 @@ class FixedPercentageGraph extends React.Component {
           borderColor: "rgba(0,0,0,0.5)",
           borderWidth: 3,
           borderDash: [5,5],
-          label: {
+          
+    };
+
+    // horizontal line for the fire target
+    var targetAnnotation = {
+        type: "line",
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value: fireTarget,
+        borderColor: "rgba(0,0,0,0.5)",
+        borderWidth: 3,
+        borderDash: [5,5],
+        
+    };
+
+
+    // If this isn't mobile, add the labels
+    if (!isMobile) {
+      yearAnnotation['label'] = {
             backgroundColor: 'rgba(0,0,0,0.8)',
             drawTime: 'afterDatasetsDraw',
             xPadding: 10,
@@ -176,46 +196,38 @@ class FixedPercentageGraph extends React.Component {
 
             // Rotation of label, in degrees, or 'auto' to use the degrees of the line, default is 0
             rotation: 0,
-        },
-        }
-      ]}
+        };
 
-      this.myChart.options.annotation.annotations.push(
-        {
-          type: "line",
-          mode: 'horizontal',
-          scaleID: 'y-axis-0',
-          value: fireTarget,
-          borderColor: "rgba(0,0,0,0.5)",
-          borderWidth: 3,
-          borderDash: [5,5],
-          label: {
-            backgroundColor: '#1ea672',
-            drawTime: 'afterDatasetsDraw',
-            xPadding: 10,
-            yPadding: 10,
-            cornerRadius: 6,
-            position: "center",
+        targetAnnotation['label'] = {
+          backgroundColor: '#1ea672',
+          drawTime: 'afterDatasetsDraw',
+          xPadding: 10,
+          yPadding: 10,
+          cornerRadius: 6,
+          position: "center",
 
-            // Adjustment along x-axis (left-right) of label relative to above number (can be negative)
-            // Negative values move the label left, postitive right.
-            xAdjust: 0,
+          // Adjustment along x-axis (left-right) of label relative to above number (can be negative)
+          // Negative values move the label left, postitive right.
+          xAdjust: 0,
 
-            // Adjustment along y-axis (top-bottom) of label, in pixels. (can be negative)
-            // Negative values move the label up, positive down.
-            yAdjust: 0,
-            enabled: true,
+          // Adjustment along y-axis (top-bottom) of label, in pixels. (can be negative)
+          // Negative values move the label up, positive down.
+          yAdjust: 0,
+          enabled: true,
 
-            // Text to display in label - default is null. Provide an array to display values on a new line
-            content: "FIRE Target: " + formatter.format(fireTarget),
-            // "FIRE Target: " + formatter.format(fireTarget),
-           
-            fontSize: 16,
+          // Text to display in label - default is null. Provide an array to display values on a new line
+          content: "FIRE Target: " + formatter.format(fireTarget),
+          // "FIRE Target: " + formatter.format(fireTarget),
+         
+          fontSize: 16,
 
-            // Rotation of label, in degrees, or 'auto' to use the degrees of the line, default is 0
-            rotation: 0,
-        },
-        })
+          // Rotation of label, in degrees, or 'auto' to use the degrees of the line, default is 0
+          rotation: 0,
+      };
+    }
+
+    this.myChart.options.annotation = {
+      annotations: [yearAnnotation, targetAnnotation]};
 
 
     this.myChart.update();
@@ -223,7 +235,7 @@ class FixedPercentageGraph extends React.Component {
 
 
   render() {
-    return <canvas ref={this.canvasRef} className={styles.canvas}/>;
+    return <canvas ref={this.canvasRef} className={styles.canvas}/>
   }
 }
 

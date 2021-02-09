@@ -157,6 +157,11 @@ width:75%;
   overflow: auto;
 }
 
+.fireSummary {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
 
 
