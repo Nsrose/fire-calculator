@@ -99,12 +99,9 @@ export default class Home extends React.Component {
             defaults={this.defaults}
             ref={this.formReference}
             />
-        {isMobile && 
-            <div className={styles.fireSummary}>
-              <div>FIRE Target: {this.state.fireTarget}</div>
-              <div>Age: {this.state.fireYear}</div>
-            </div>
-          }
+        
+
+
           
 
           <div className={styles.graph}>
@@ -115,6 +112,13 @@ export default class Home extends React.Component {
             />
 
           </div>
+
+          {isMobile && 
+            <div className={styles.fireSummary}>
+              <div>FIRE Target: {this.state.fireTarget}</div>
+              <div>Age: {this.state.fireYear}</div>
+            </div>
+          }
            
           
 
