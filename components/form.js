@@ -36,9 +36,54 @@ export default class InputsForm extends React.Component {
     this.props.graph.current.handleUpdate(this.props.graph.current.calculator.calculate(this.props.defaults, unfolded.extraIncome, unfolded.extraExpenses));
   }
 
+
+  findFormElement = (name) => {
+     for (var i = 0; i < this.state.formElements.length; i++) {
+        var element = this.state.formElements[i];
+        if (element.ref.current.state.name == name) {
+          return element;
+        }
+     }
+  }
+
   handleChangeToInputForm = (event) => {
-  
-    if (this.props.defaults[event.target.name]) {
+    var name = event.target.name;
+    
+    // if (['stocks', 'bonds', 'cash'].includes(name)) {
+    //   var stockValue;
+    //   var bondValue;
+    //   var cashValue;
+    //   if (name == 'stocks') {
+    //     var bondElement = this.findFormElement('bonds');
+    //     var cashElement = this.findFormElement('cash');
+    //     bondValue = dealWithPercentage(bondElement.ref.current.state.value);
+    //     cashValue = dealWithPercentage(cashElement.ref.current.state.value);
+    //     stockValue = dealWithPercentage(event.target.value);
+    //   } else if (name == 'bonds') {
+    //     var stockElement = this.findFormElement('stocks');
+    //     var cashElement = this.findFormElement('cash');
+    //     bondValue = dealWithPercentage(event.target.value);
+    //     cashValue = dealWithPercentage(cashElement.ref.current.state.value);
+    //     stockValue = dealWithPercentage(stockElement.ref.current.state.value);
+    //   } else {
+    //     var stockElement = this.findFormElement('stocks');
+    //     var bondElement = this.findFormElement('bonds');
+    //     bondValue = dealWithPercentage(bondElement.ref.current.state.value);
+    //     cashValue = dealWithPercentage(event.target.value);
+    //     stockValue = dealWithPercentage(stockElement.ref.current.state.value);
+    //   }
+
+    //   if (stockValue + bondValue + cashValue != 1.0) {
+    //     alert("Stocks, bonds, and cash allocation must add up to 100%.");
+    //     return;
+    //   }
+    // }
+    
+
+
+    
+
+    if (name) {
       var newValue = event.target.value;
       var formElement = this.props.defaults[event.target.name].ref.current;
       formElement.updateCache(newValue);

@@ -22,7 +22,7 @@ export default class Education extends React.Component {
               The fundamental principle behind FIRE is that once you hit your target net worth number, you can safely withdraw some percentage of that per year (this is called the Withdrawal Rate) and live off of that indefinitely. 
 
               <br></br> <br></br>
-              Generally a 4% Withdrawal Rate is assumed to be safe. For example, if you withdraw 4% of your $1,000,000 net worth, that gives you $40,000 in spending money that year. 
+              Generally a 4% Withdrawal Rate is assumed to be safe for a <a href="https://earlyretirementnow.com/2016/12/07/the-ultimate-guide-to-safe-withdrawal-rates-part-1-intro/" target="_blank" className={styles.link}>30 year retirement</a>. For example, if you withdraw 4% of your $1,000,000 net worth, that gives you $40,000 in spending money that year. 
               During the same year, however, your remaining $960,000 is still invested in a reasonable mix of stocks, bonds, and cash. 
               Assuming your overall mix of assets appreciates by more than 4% that year (which is quite conservative compared to historical years) that will replenish your net worth to be back at $1,000,000 by the next year (on average).
               Put together, this means if you can live off of $40,000 / year in spending money, you need to reach $1,000,000 in net worth before becoming financially independent and "FIREing".
@@ -41,6 +41,14 @@ export default class Education extends React.Component {
               </div>
             </div>
 
+            <div className={styles.educationElementContainer}>
+             <div className={styles.title}>Inflation is built in.</div>
+              <div className={styles.description}>
+              Dealing with inflation of currency can be tricky. In this calculator, the Returns are <a href="https://www.thebalance.com/what-is-real-return-and-real-yield-417078#:~:text=The%20real%20return%20is%20simply,the%20real%20return%20is%202%25." target="_blank"
+              className={styles.link}>real returns</a> and therefore are adjusted for inflation so you don't need to worry about that. 
+              </div>
+            </div>
+
 
             <div className={styles.educationElementContainer}>
              <div className={styles.title}>It's not about how much you have right now, it's about how much you save.</div>
@@ -56,7 +64,7 @@ export default class Education extends React.Component {
             <div className={styles.educationElementContainer}>
              <div className={styles.title}>FIRE doesn't have to be about retiring.</div>
               <div className={styles.description}>
-                One of the most common responses from people new FIRE is "what if I like my job and I want to continue working?" With FIRE, that's completely achievable. Hitting your FIRE target simply means you no longer <em>need</em> to work unless you want to.
+                One of the most common responses from people new to FIRE is "what if I like my job and I want to continue working?" With FIRE, that's completely achievable. Hitting your FIRE target simply means you no longer <em>need</em> to work unless you want to.
                 <br></br><br></br>
                 You can now instead choose to focus on hobbies, invest in other companies, donate to charity, get involved in local government, or keep working at exactly the same job.
               </div>

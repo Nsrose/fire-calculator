@@ -23,7 +23,6 @@ export default class FormElement extends React.Component {
 			name: this.props.name,
 			userName: this.props.userName,
 			dataTip: this.props.dataTip,
-			ref: this.props.ref
 		}
 	}
 
@@ -37,8 +36,6 @@ export default class FormElement extends React.Component {
 		}
 		window.localStorage.setItem(this.state.name, JSON.stringify(newItem));
 	}
-
-	// <input defaultValue={this.state.value} name={this.state.name} className={styles.formInput}/>
 
 
 	render() {
