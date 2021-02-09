@@ -1,16 +1,36 @@
 .title {
   font-size:2em;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .description {
-	font-size:1em;
+	font-size:1.2em;
 }
 
 .educationContainer {
-	margin-left: 20px;
+	width: 50%;
+	display: inline-block;
 	margin-top:100px;
+	float: left;
+  position: relative;
+  left: 50%;
+  line-height: 2;
+}
+
+.fixerContainer {
+	float: left;
+      position: relative;
+      left: -50%;
 }
 
 .educationElementContainer {
-	width: 50%;
+	margin-top: 40px;
+}
+
+.link {
+	/*color:rgba(30, 166, 114, 1);*/
+	color:#ffce48;
+	font-weight: bold;
+	text-decoration: underline;
 }

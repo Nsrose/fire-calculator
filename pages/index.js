@@ -41,8 +41,8 @@ const DEFAULTS = {
       },
       income: {
         value: "$50,000.00",
-        userName: "Post-Tax Income",
-        dataTip: "Your yearly income, including bonuses <br> and equity, with taxes subtracted out",
+        userName: "Income",
+        dataTip: "Your yearly income, including bonuses, <br> equity, & employer matching (401k), with taxes subtracted out",
         name: "income",
         isCurrency: true
       },
@@ -189,9 +189,7 @@ export default class Home extends React.Component {
             />
 
           </div>
-           <div className={styles.feedback}><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhF7cTfyrgHZdLlHP-OGZKnnvuC6kf1n51h-pKbJTJ_1hbQ/viewform?usp=sf_link"
-         target="_blank">File a bug or feature request</a></div>
-         <div className={styles.clearfix}></div>
+           
 
 
         </div>
@@ -202,15 +200,11 @@ export default class Home extends React.Component {
         </main>
         <footer className={styles.footer}>
          
-          <div><a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            All financial data is processed client-side with {' '}
-            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-          </a>
-          </div>
+          
+<div className={styles.clearfix}></div>
+          <div className={styles.feedback}><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhF7cTfyrgHZdLlHP-OGZKnnvuC6kf1n51h-pKbJTJ_1hbQ/viewform?usp=sf_link"
+         target="_blank">File a bug or feature request</a></div>
+         <div className={styles.clearfix}></div>
         </footer>
       </div>
     )

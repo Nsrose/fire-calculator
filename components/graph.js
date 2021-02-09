@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Line, Chart} from 'react-chartjs-2';
 import Calculator from "../components/calculator";
 import * as ChartAnnotation from 'chartjs-plugin-annotation';
+import styles from '../styles/Home.module.css';
 
 
 Chart.pluginService.register( ChartAnnotation);
@@ -27,7 +28,7 @@ class FixedPercentageGraph extends React.Component {
       type: 'line',
       options: 
       {
-        responsive: true,
+        maintainAspectRatio : false,
         animation: {
             duration: 3000, // general animation time
         },
@@ -85,8 +86,6 @@ class FixedPercentageGraph extends React.Component {
                   return "Age: " + String(tooltipItems[0].xLabel)
                 }
             }
-        },
-        annotation: {
         }
       },
       data: {
@@ -224,7 +223,7 @@ class FixedPercentageGraph extends React.Component {
 
 
   render() {
-    return <canvas ref={this.canvasRef} />;
+    return <canvas ref={this.canvasRef} className={styles.canvas}/>;
   }
 }
 
