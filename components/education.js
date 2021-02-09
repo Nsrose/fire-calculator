@@ -10,7 +10,7 @@ export default class Education extends React.Component {
 
   render () {
     return (
-        <div className={styles.educationContainer}>
+        <div className={styles.educationContainer} id="educationContainer">
           <div className={styles.fixerContainer}>
 
 

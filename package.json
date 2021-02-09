@@ -15,6 +15,7 @@
     "canvasjs": "^1.8.3",
     "chart.js": "^2.9.4",
     "chartjs-plugin-annotation": "^0.5.7",
+    "classnames": "^2.2.6",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-chartjs-2": "^2.11.1",

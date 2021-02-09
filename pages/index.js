@@ -7,8 +7,8 @@ import FormElement from "../components/form-element";
 import Education from "../components/education";
 import {DEFAULTS,formatter} from '../components/util';
 import {isMobile} from 'react-device-detect';
-
-
+import Image from 'next/image';
+import classNames from 'classnames'
 
 
 export default class Home extends React.Component {
@@ -52,6 +52,10 @@ export default class Home extends React.Component {
       })
   }
 
+  scrollDown = () => {
+    var div = document.getElementById("educationContainer");
+    div.scrollIntoView({behavior: 'smooth'});
+  }
 
 
   render() {
@@ -119,9 +123,15 @@ export default class Home extends React.Component {
               <div>Age: {this.state.fireYear}</div>
             </div>
           }
-           
-          
 
+        </div>
+
+        <div className={classNames(styles.downArrow, styles.bounce)} onClick={this.scrollDown}>
+          <Image 
+          src="/images/down-arrow-icon.jpg"
+          width="60px"
+          height="60px"
+          />
         </div>
 
         <Education />
