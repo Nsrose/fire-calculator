@@ -30,13 +30,6 @@ export default class InputsForm extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      mobileDevice: isMobile
-    }, () => {
-      console.log(isMobile);
-    })
-  }
 
   handleUpdate = () => {
     var unfolded = this.unfoldExtraElements();

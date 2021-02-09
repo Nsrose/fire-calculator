@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/Form.module.css'
 import ReactTooltip from 'react-tooltip';
 import CurrencyInput from 'react-currency-input';
+import NumberFormat from 'react-number-format';
 
 const CURRENCY_FIELDS = new Set([
   "investments",
@@ -37,6 +38,8 @@ export default class FormElement extends React.Component {
 		window.localStorage.setItem(this.state.name, JSON.stringify(newItem));
 	}
 
+	// <input defaultValue={this.state.value} name={this.state.name} className={styles.formInput}/>
+
 
 	render() {
 		return (
@@ -57,7 +60,7 @@ export default class FormElement extends React.Component {
 		          />
 	          	<div className={styles.clearfix}></div>
 	          	{CURRENCY_FIELDS.has(this.state.name)
-        			? <CurrencyInput value={this.state.value} prefix="$" name={this.state.name} className={styles.formInput}/>
+        			? <NumberFormat thousandSeparator={true} prefix={'$'} name={this.state.name} value={this.state.value} className={styles.formInput}/>
         			: <input className={styles.formInput} name={this.state.name} defaultValue={this.state.value}/>
       			}
 	         </div>

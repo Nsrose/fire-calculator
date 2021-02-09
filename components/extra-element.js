@@ -2,7 +2,7 @@ import React from "react";
 import styles from '../styles/Form.module.css'
 import extraElementStyles from '../styles/ExtraElement.module.css'
 import Image from 'next/image';
-import CurrencyInput from 'react-currency-input';
+import NumberFormat from 'react-number-format';
 import {parseCurrency} from '../components/util';
 
 
@@ -113,7 +113,7 @@ export default class ExtraElement extends React.Component {
 				<div className={styles.clearfix}></div>
 				<div className={extraElementStyles.inputContainer}>
 					<div className={extraElementStyles.inputValueContainer}>
-		           		Total amount: <CurrencyInput prefix="$" name="value" value={this.state.value} className={styles.formInput}/>
+		           		Total amount: <NumberFormat thousandSeparator={true} prefix={"$"} name="value" value={this.state.value} className={styles.formInput}/>
 		           	</div>
 		           	<div className={extraElementStyles.inputDurationContainer}>
 		           		One-time?<input name="durationSelector" type="checkbox"
