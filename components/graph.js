@@ -4,7 +4,7 @@ import Calculator from "../components/calculator";
 import * as ChartAnnotation from 'chartjs-plugin-annotation';
 import styles from '../styles/Home.module.css';
 import {isMobile} from 'react-device-detect';
-import {formatter} from '../components/util';
+import {formatter, dataToCSV} from '../components/util';
 
 
 Chart.pluginService.register( ChartAnnotation);
@@ -114,7 +114,11 @@ class FixedPercentageGraph extends React.Component {
     var newData = calculationResult.data;
     var fireTarget = calculationResult.fireTarget;
     if (this.props.parent) {
-      this.props.parent.setState({fireYear: fireYear, fireTarget: formatter.format(fireTarget)});  
+      this.props.parent.setState({
+        fireYear: fireYear, 
+        fireTarget: formatter.format(fireTarget),
+        csvData: dataToCSV(newData)
+      });  
     }
     
 
@@ -168,6 +172,8 @@ class FixedPercentageGraph extends React.Component {
         borderDash: [5,5],
         
     };
+
+    
 
 
     // If this isn't mobile, add the labels

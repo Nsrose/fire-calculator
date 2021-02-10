@@ -9,6 +9,7 @@ import {DEFAULTS,formatter} from '../components/util';
 import {isMobile} from 'react-device-detect';
 import Image from 'next/image';
 import classNames from 'classnames'
+import { CSVLink, CSVDownload } from "react-csv";
 
 
 export default class Home extends React.Component {
@@ -17,7 +18,9 @@ export default class Home extends React.Component {
     this.chartReference = React.createRef();
     this.formReference = React.createRef();
     this.defaults = {};
-    this.state = {};
+    this.state = {
+      "csvData": []
+    };
 
   }
 
@@ -126,6 +129,8 @@ export default class Home extends React.Component {
 
         </div>
 
+        <CSVLink data={this.state.csvData} className={styles.csv}>Download CSV</CSVLink>
+
         <div className={classNames(styles.downArrow, styles.bounce)} onClick={this.scrollDown}>
           <Image 
           src="/images/down-arrow-icon.jpg"
@@ -133,6 +138,8 @@ export default class Home extends React.Component {
           height="60px"
           />
         </div>
+
+        
 
         <Education />
 

@@ -83,7 +83,7 @@ export default class InputsForm extends React.Component {
 
     
 
-    if (name) {
+    if (this.props.defaults[name]) {
       var newValue = event.target.value;
       var formElement = this.props.defaults[event.target.name].ref.current;
       formElement.updateCache(newValue);
