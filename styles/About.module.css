@@ -1,0 +1,41 @@
+.title {
+  font-size:2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color:white;
+}
+
+.description {
+	font-size:1.2em;
+	color:white;
+}
+
+.educationContainer {
+	/*width:100%;*/
+	max-width:900px;
+	margin-top:100px;
+  /*padding: 40px;*/
+	float: left;
+  position: relative;
+  /*left: 50%;*/
+  line-height: 2;
+  display: block;
+  justify-content: center;	
+  margin-left: 10%;
+  margin-right: 10%;
+  color:white;
+  margin-bottom: 40px;
+}
+
+
+
+.educationElementContainer {
+	margin-top: 40px;
+}
+
+.link {
+	/*color:rgba(30, 166, 114, 1);*/
+	color:#ffce48;
+	font-weight: bold;
+	text-decoration: underline;
+}
