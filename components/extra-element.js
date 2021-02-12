@@ -90,6 +90,7 @@ export default class ExtraElement extends React.Component {
 	render () {
 		return <form className={styles.formElement} onBlur={(e) => this.handleChange(e)}>
 				<label className={styles.formLabel}>Extra</label> 
+				<div className={styles.clearfix}></div>
 				<button className={extraElementStyles.button}
 					onClick={this.handleExpenseOrIncomeChange}
 					value="expense"
@@ -116,7 +117,7 @@ export default class ExtraElement extends React.Component {
 		           		Total amount: <NumberFormat thousandSeparator={true} prefix={"$"} name="value" value={this.state.value} className={styles.formInput}/>
 		           	</div>
 		           	<div className={extraElementStyles.inputDurationContainer}>
-		           		One-time?<input name="durationSelector" type="checkbox"
+		           		<label className={extraElementStyles.label}>One-time?</label><input name="durationSelector" type="checkbox"
 					           		onChange={(e) => this.toggleOneTime(e)}/>
 		           	</div>
 		           	<div className={extraElementStyles.inputStartAge}>

@@ -10,6 +10,9 @@ import {isMobile} from 'react-device-detect';
 import Image from 'next/image';
 import classNames from 'classnames'
 import { CSVLink, CSVDownload } from "react-csv";
+import TopBar from '../components/topbar';
+import Header from '../components/header';
+import { Button } from 'react-bootstrap';
 
 
 export default class Home extends React.Component {
@@ -64,32 +67,14 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <Head>
-          <title>FIRE Calculator</title>
-          <link rel="icon" href="/favicon.ico" />
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-39S0HP6RN0"
-          />
-
-
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-39S0HP6RN0');
-                `,
-            }}
-          />
-
-          <script data-ad-client="ca-pub-4222252253730110" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        </Head>
+        <Header />
 
        
 
         <main className={styles.main}>
+
+        <TopBar />
+
           <h1 className={styles.title}>
             🔥 FIRE Calculator: How Long Until I Can Retire?
           </h1>
@@ -149,8 +134,8 @@ export default class Home extends React.Component {
          
           
 <div className={styles.clearfix}></div>
-          <div className={styles.feedback}><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhF7cTfyrgHZdLlHP-OGZKnnvuC6kf1n51h-pKbJTJ_1hbQ/viewform?usp=sf_link"
-         target="_blank">File a bug or feature request</a></div>
+          <Button variant="outline-warning" className={styles.feedback}><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZhF7cTfyrgHZdLlHP-OGZKnnvuC6kf1n51h-pKbJTJ_1hbQ/viewform?usp=sf_link"
+         target="_blank" className={styles.feedbackText}>File a bug or feature request</a></Button>
          <div className={styles.clearfix}></div>
         </footer>
       </div>

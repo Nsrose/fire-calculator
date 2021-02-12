@@ -2,3 +2,7 @@
 	float:right;
 	cursor: pointer;
 }
+
+.label {
+	margin-right: 10px;
+}

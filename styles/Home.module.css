@@ -10,22 +10,32 @@
 
 
 .main {
-  padding: 5rem 0;
+  /*padding: 5rem 0;*/
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /*align-items: center;*/
+  margin-bottom: 80px;
 }
 
 .feedback {
   margin-left:20px;
   margin-top: 40px;
-  font-size:0.75em;
-  width: 100%;
+  font-size:1em;
+
 }
 .feedback:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.feedbackText {
+  color:white;
+}
+
+.feedbackText:hover {
+  text-decoration:none;
+  color:white;
 }
 
 .footer {
@@ -59,9 +69,10 @@
 }
 
 .title {
-  margin: 0;
+  margin-top:80px;
   line-height: 1.15;
   font-size: 4rem;
+  color:white;
 }
 
 .title,
@@ -72,6 +83,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  color:white;
 }
 
 .code {
@@ -161,6 +173,7 @@ width:75%;
   margin-left: 20px;
   margin-top: 20px;
   font-weight: bold;
+  color:white;
 }
 
 .downArrow {
@@ -202,4 +215,28 @@ width:75%;
   background: #1A1A1A;
 }
 
+.navContainer {
+  top:0;
+  z-index: 100;
+  width:100%;
+  padding:1.2em;
+  font-weight: bold;
+}
 
+.navItemLeft {
+  float:left;
+  cursor: pointer;
+  font-size: 24px;
+
+}
+
+.navItemRight {
+  float:right;
+  margin-right:40px;
+  cursor: pointer;
+}
+
+.navItemRight:hover {
+  text-decoration: underline;
+    transition: width 120ms ease-in;
+}
