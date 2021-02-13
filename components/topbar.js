@@ -17,7 +17,7 @@ export default class TopBar extends React.Component {
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
       <Link href="/" passHref><Nav.Link>Home</Nav.Link></Link>
-      <Link href="/about" passHref><Nav.Link>About</Nav.Link></Link>
+      {/* <Link href="/about" passHref><Nav.Link>About</Nav.Link></Link> */}
       <NavDropdown title="Resources" id="basic-nav-dropdown">
         <NavDropdown.Item href="https://reddit.com/r/fire" target="_blank">Reddit: FIRE</NavDropdown.Item>
         <NavDropdown.Item href="https://reddit.com/r/fatfire" target="_blank">Reddit: FatFIRE</NavDropdown.Item>

@@ -77,7 +77,8 @@ export default class Education extends React.Component {
                 Don't forget to add any employer contributions to your income including HSA & 401k matching.
                 This will be a bit harder if you have your own business or multiple sources of income, but getting within a few thousand dollars should be fine. 
                 <br></br><br></br>
-                You can calculate your yearly spending in most online bank accounts, such as Chase's yearly spending summary, or you can estimate based your monthly rent / housing costs, grocery bills, travel & leisure, and gift costs. 
+                You can calculate your yearly spending in most online bank accounts, such as <a href="https://www.chase.com/personal/credit-cards/year-end-summary"
+                target="_blank" className={styles.link}>Chase's yearly spending summary</a>, or you can estimate based your monthly rent / housing costs, grocery bills, travel & leisure, and gift costs. 
               </div>
             </div>
 
