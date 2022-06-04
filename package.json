@@ -30,6 +30,8 @@
     "react-responsive": "^8.2.0",
     "react-strap": "0.0.1",
     "react-tooltip": "^4.2.13",
-    "reactstrap": "^8.9.0"
+    "reactstrap": "^8.9.0",
+    "splitwise": "^1.0.0",
+    "yarn": "^1.22.18"
   }
 }
