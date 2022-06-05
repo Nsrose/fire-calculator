@@ -15,14 +15,16 @@ var SPLITWISE_API_KEY = "yNaIqZjz2ztidmKq1SlmsFr6zsaSV29tfuHCxI5T";
 export default class Trips extends React.Component {
 	constructor (props) {
 		super(props);
-		// const sw = Splitwise({
-  // 			consumerKey: 'o7yokwOJyej2yX1T3SVyiTqK95c7FoYuretCM1wB',
-  // 			consumerSecret: 'NX3dV83FIRT8IBDAOg5tmm2YNDdk4e1kDFb3dTTe',
-  // 			logger: console.log
-		// })
+		const sw = Splitwise({
+  			consumerKey: 'o7yokwOJyej2yX1T3SVyiTqK95c7FoYuretCM1wB',
+  			consumerSecret: 'NX3dV83FIRT8IBDAOg5tmm2YNDdk4e1kDFb3dTTe',
+  			logger: console.log
+		});
+
+		sw.getCurrentUser().then(console.log) // => { id: ... }
 	}
 
-	// https://github.com/keriwarr/splitwise
+	// https://github.com/keriwarr/splitwise. You need to download https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US to make this work in dev
 
 
 	initiate = () => {
@@ -48,7 +50,7 @@ export default class Trips extends React.Component {
 
 	          
 	  
-				<div><a href="https://www.notion.so/Trip-Planning-Template-fc4bb38a5a1748b5a122e93a69e93401" target='_blank'>Create planning template</a></div>
+				<div><a href="https://www.notion.so/Trip-Planning-Template-fc4bb38a5a1748b5a122e93a69e93401?duplicate=true" target='_blank'>Create planning template</a></div>
 	            <div><a href="https://secure.splitwise.com/groups/new" target='_blank'>Create Splitwise group</a></div>
 	            
 
