@@ -42,21 +42,21 @@ export default class Trips extends React.Component {
 	}
 
 	componentDidMount() {
-		var userOAuthToken, userOAuthTokenSecret;
-		var authApi = new AuthApi(consumerKey, consumerSecret);
-		authApi.getOAuthRequestToken()
-	    .then(({ token, secret }) => {
-	        [userOAuthToken, userOAuthTokenSecret] = [token, secret];
-	        this.splitwiseAuthURL = authApi.getUserAuthorisationUrl(token);
-	        // this isn't actually setting the URL 
-	        console.log(this.splitwiseAuthURL);
-	        var splitwiseApi = authApi.getSplitwiseApi(userOAuthToken, userOAuthTokenSecret);
-	    	debugger;
+		// var userOAuthToken, userOAuthTokenSecret;
+		// var authApi = new AuthApi(consumerKey, consumerSecret);
+		// authApi.getOAuthRequestToken()
+	 //    .then(({ token, secret }) => {
+	 //        [userOAuthToken, userOAuthTokenSecret] = [token, secret];
+	 //        this.splitwiseAuthURL = authApi.getUserAuthorisationUrl(token);
+	 //        // this isn't actually setting the URL 
+	 //        console.log(this.splitwiseAuthURL);
+	 //        var splitwiseApi = authApi.getSplitwiseApi(userOAuthToken, userOAuthTokenSecret);
+	 //    	debugger;
 
-	    	splitwiseApi.createGroup("new group", []);
+	 //    	splitwiseApi.createGroup("new group", []);
 
 
-	    });
+	 //    });
 
 
 	}
@@ -71,13 +71,68 @@ export default class Trips extends React.Component {
 
 
 	render() {
-		return (<div className={styles.container}>
+		return (
+		<div className={styles.educationContainer} id="educationContainer">
+			<h1 className={styles.title}>
+	            Please stop trying to plan trips in group chats
+	         </h1>
+
+			<div className={styles.fixerContainer}>
+
+				<div className={styles.educationElementContainer}>
+					<div className={styles.description}>
+			              There is not a worse way in the world of planning a trip with friends than using a group chat, and yet this is how all of my friends seem to do it. 
+			              <br></br><br></br>The reason this is so terrible is because you & your friends are trying to solve an intertwined constraint satisfaction problem at the same time in a sequential format. None of the decisions made are easily reachable and recallable, and if you want to return to any earlier part in the conversation to question an earlier decision based on new information, it’s impossible:
+	              	</div>
+
+				</div>
+
+
+				<div>
+	             	<Image 
+	             	src="/images/group-chat.png"
+	             	width="200px"
+	             	height="240px"
+	             	/>
+             	</div>
+
+             	<div className={styles.educationElementContainer}>
+	             	<div className={styles.description}>
+			            We need a better way of planning group trips. Something that has the ability to track multiple different conversations about multiple different things, resolve multifactorial constraints, record decisions, keep track of who's paid what, and much more.
+			            I think for now a well set-up Notion template with collaborators makes the most sense for this task, and I made one you can try out:
+					</div>
+				</div>
+
+				<a href="https://www.notion.so/Trip-Planning-Template-fc4bb38a5a1748b5a122e93a69e93401?duplicate=true" target='_blank'>
+					<div className={styles.startButton}>
+		             	Start a new trip
+		            </div>
+		        </a>
+
+
+			</div>
+
+
+
+		</div>
+	)
+
+
+
+
+
+
+
+
+
+			{/*
+			<div className={styles.container}>
 			<TripHeader />
 			<main className={styles.main}>
 				
 
 				<div className={styles.educationContainer} id="educationContainer">
-				<div className={styles.fixerContainer}>
+					<div className={styles.fixerContainer}></div>
 
 				<div className={styles.educationElementContainer}>
 	             <div className={styles.title}>Please stop planning trips in chats, for the love of God</div>
@@ -89,36 +144,36 @@ export default class Trips extends React.Component {
 		             	/>
 	             	</div>
 	              <div className={styles.description}>
-	              There is not a worse way in the world of planning a trip with friends than using a group chat, and yet this is how all of my friends seem to do it. 
-	              <br></br><br></br>The reason this is so terrible is because you & your friends are trying to solve an intertwined constraint satisfaction problem at the same time in a sequential format. None of the decisions made are easily reachable and recallable, and if you want to return to any earlier part in the conversation to question an earlier decision based on new information, it’s impossible:
-
-
-
+		              There is not a worse way in the world of planning a trip with friends than using a group chat, and yet this is how all of my friends seem to do it. 
+		              <br></br><br></br>The reason this is so terrible is because you & your friends are trying to solve an intertwined constraint satisfaction problem at the same time in a sequential format. None of the decisions made are easily reachable and recallable, and if you want to return to any earlier part in the conversation to question an earlier decision based on new information, it’s impossible:
 	              </div>
+	              <div className={styles.fixerContainer}></div>
 
-	              <div>
-			              <Image 
-				             	src="/images/graph.png"
-				             	width="200px"
-				             	height="200px"
-				             	/>
+	              	<div>
+		              <Image 
+			             	src="/images/graph.png"
+			             	width="200px"
+			             	height="200px"
+			             	/>
 		            </div>
 		            <div className={styles.description}>
-		            Instead consider using a doc as a way to plan. Docs and sheets allow for multiple ongoing discussions about different things at once, which at least solves a few problems (but admittedly not all):
-					(A) Removes the terrible sequential nature of group chats, and (B) keeps state so people can go back and reference decisions that were already made instead of constantly pinging the chat “hey where’s the link to the airbnb again?”
-					<br></br><br></br>
-					In fact, I’m so annoyed by this I made a template doc you can use with your friends here. Try it out 
+			            Instead consider using a doc as a way to plan. Docs and sheets allow for multiple ongoing discussions about different things at once, which at least solves a few problems (but admittedly not all):
+						(A) Removes the terrible sequential nature of group chats, and (B) keeps state so people can go back and reference decisions that were already made instead of constantly pinging the chat “hey where’s the link to the airbnb again?”
+						<br></br><br></br>
+						In fact, I’m so annoyed by this I made a template doc you can use with your friends here. Try it out 
 
 					</div>
 
 	            </div>
 
 
+
+
 	            <div className={styles.educationElementContainer}>
 	             <div className={styles.title}><a href="https://www.notion.so/Trip-Planning-Template-fc4bb38a5a1748b5a122e93a69e93401?duplicate=true" target='_blank'>Start a new trip</a></div>
 	          
 	            </div>
-
+				*/}
 
 
 	          
@@ -136,14 +191,6 @@ export default class Trips extends React.Component {
 	            
 
 
-	          </div>
 
-	          </div>
-	          
-
-			</main>
-			<Footer />
-
-		</div>)
 	}
 }

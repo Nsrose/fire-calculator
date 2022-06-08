@@ -44,3 +44,19 @@
 	height: 20px;
 	position: relative;
 }
+
+.startButton {
+  text-align: center;
+  cursor: pointer;
+  margin-top:10px;
+  width: 200px;
+  background: #292a2b;
+  padding:10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:4px;
+}
+.sstartButton:hover {
+  background: #1A1A1A;
+}
